@@ -2,11 +2,17 @@ extends CharacterBody2D
 
 class_name Player
 
-# adapted from this tutorial: https://www.youtube.com/watch?v=CncJvOEM3OA&t=932s
+signal new_body_segment
+
+# pacman stuff adapted from this tutorial: https://www.youtube.com/watch?v=CncJvOEM3OA&t=932s
 
 var next_movement_direction: Vector2 = Vector2.ZERO
 var movement_direction: Vector2 = Vector2.ZERO
 var shape_query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
+
+var previous_position: Vector2 = position		# updated each frame to calculate distance traveled
+var distance_progress: int = 0				# how far the player has moved since the last segment was added
+var segment_distance: int = 40 				# the distance between body segments
 
 @export var speed: int = 150
 
@@ -23,7 +29,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	get_input()
 	
-	# player starts with no movement, update instantly on first directional input
+	# player starts with no movement, so update instantly on first directional input
 	if movement_direction == Vector2.ZERO:
 		movement_direction = next_movement_direction
 		
@@ -32,8 +38,19 @@ func _physics_process(delta: float) -> void:
 		movement_direction = next_movement_direction
 		sprite_2d.rotation = movement_direction.angle() + PI / 2
 	
+	previous_position = position
 	velocity = movement_direction * speed
 	move_and_slide()
+	
+	# find the distance traveled between this frame and the last one
+	var distance_traveled = (position - previous_position).length()
+	
+	# add to the distance progress; when it's over the segment distance, create a new one
+	distance_progress += distance_traveled
+	
+	if (distance_progress >= segment_distance):
+		new_body_segment.emit()
+		distance_progress %= segment_distance
 	
 	
 func get_input() -> void:
