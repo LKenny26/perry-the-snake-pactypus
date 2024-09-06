@@ -1,9 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://0bpum3h5endo"]
+[gd_scene load_steps=4 format=3 uid="uid://0bpum3h5endo"]
 
 [ext_resource type="Texture2D" uid="uid://rcwf33r5sw12" path="res://Assets/icon.svg" id="1_88wge"]
+[ext_resource type="Script" path="res://Scenes/body_segment.gd" id="1_cm180"]
 
-[node name="BodySegment" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5feim"]
+size = Vector2(24, 24)
+
+[node name="BodySegment" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_cm180")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_88wge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5feim")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

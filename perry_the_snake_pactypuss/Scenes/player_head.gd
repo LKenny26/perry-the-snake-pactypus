@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name Player
+class_name PlayerHead
 
 signal new_body_segment
 
@@ -12,21 +12,25 @@ var shape_query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.n
 
 var previous_position: Vector2 = position		# updated each frame to calculate distance traveled
 var distance_progress: int = 0				# how far the player has moved since the last segment was added
-var segment_distance: int = 40 				# the distance between body segments
+var segment_distance: int = 20 				# the distance between body segments
 
-@export var speed: int = 150
+@export var speed: int = 175
+@export var alive: bool = true				# whether the player is still playing/moving or has died
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var direction_pointer: Sprite2D = $DirectionPointer
-@onready var body_collider: CollisionShape2D = $BodyCollider
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
 func _ready() -> void:
-	shape_query.shape = body_collider.shape
+	shape_query.shape = collision_shape_2d.shape
 	shape_query.collision_mask = 2
 
 
 func _physics_process(delta: float) -> void:
+	if (!alive):
+		return
+	
 	get_input()
 	
 	# player starts with no movement, so update instantly on first directional input
@@ -54,17 +58,23 @@ func _physics_process(delta: float) -> void:
 	
 	
 func get_input() -> void:
+	var input_direction: Vector2
+	
 	if Input.is_action_pressed("left"):
-		next_movement_direction = Vector2.LEFT
+		input_direction = Vector2.LEFT
 		
 	elif Input.is_action_pressed("right"):
-		next_movement_direction = Vector2.RIGHT
+		input_direction = Vector2.RIGHT
 		
 	elif Input.is_action_pressed("up"):
-		next_movement_direction = Vector2.UP
+		input_direction = Vector2.UP
 		
 	elif Input.is_action_pressed("down"):
-		next_movement_direction = Vector2.DOWN
+		input_direction = Vector2.DOWN
+	
+	# don't allow player to turn around 180 degrees
+	if (input_direction && (input_direction + movement_direction) != Vector2.ZERO):
+		next_movement_direction = input_direction
 		
 	# this is a visual indicator for the next direction the player wants to move
 	if next_movement_direction != Vector2.ZERO:
