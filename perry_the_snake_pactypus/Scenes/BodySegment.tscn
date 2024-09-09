@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://0bpum3h5endo"]
 
-[ext_resource type="Texture2D" uid="uid://rcwf33r5sw12" path="res://Assets/icon.svg" id="1_88wge"]
 [ext_resource type="Script" path="res://Scenes/body_segment.gd" id="1_cm180"]
+[ext_resource type="Texture2D" uid="uid://b68iqwgyfwj2t" path="res://animations/platy-body/IMG_9050.PNG" id="2_bh70a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5feim"]
 size = Vector2(24, 24)
@@ -11,8 +11,8 @@ collision_layer = 4
 script = ExtResource("1_cm180")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_88wge")
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("2_bh70a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5feim")

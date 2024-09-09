@@ -4,6 +4,10 @@ class_name BodySegment
 
 func _on_body_entered(body: Node2D):
 	
+	# dont create when it is first ?
+	if get_index() == 0:
+		return
+	
 	# ignore collisiosn with the last segment since it'll immediately colide with the player head
 	# upon being placed
 	if get_index() + 1 == get_parent().get_child_count():
