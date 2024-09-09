@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	# only update movement_direction when there's a gap in the walls
 	if can_move_in_direction(next_movement_direction, delta):
 		movement_direction = next_movement_direction
-		sprite_2d.rotation = movement_direction.angle() + PI / 2
+		sprite_2d.rotation = movement_direction.angle() #+ PI / 2 
 	
 	previous_position = position
 	velocity = movement_direction * speed

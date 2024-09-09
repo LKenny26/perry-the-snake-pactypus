@@ -1,49 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://0bpum3h5endo"]
+[gd_scene load_steps=4 format=3 uid="uid://0bpum3h5endo"]
 
+[ext_resource type="Texture2D" uid="uid://rcwf33r5sw12" path="res://Assets/icon.svg" id="1_88wge"]
 [ext_resource type="Script" path="res://Scenes/body_segment.gd" id="1_cm180"]
-[ext_resource type="Texture2D" uid="uid://botv8a0l1lyua" path="res://animations/platy-short/image0.png" id="2_gkc2q"]
-[ext_resource type="Texture2D" uid="uid://dcjypr2iibboe" path="res://animations/platy-short/image1.png" id="3_k57ok"]
-[ext_resource type="Texture2D" uid="uid://bx87okyxp2lt" path="res://animations/platy-short/image2.png" id="4_sohdl"]
-[ext_resource type="Texture2D" uid="uid://dyprk6a5wpoxp" path="res://animations/platy-short/image3.png" id="5_x7frt"]
-[ext_resource type="Texture2D" uid="uid://epj0cyharcwv" path="res://animations/platy-short/image4.png" id="6_k8yth"]
-[ext_resource type="Texture2D" uid="uid://cspaoclhje22t" path="res://animations/platy-short/image5.png" id="7_eqcbq"]
-[ext_resource type="Texture2D" uid="uid://dqbbeqts6psqm" path="res://animations/platy-short/image6.png" id="8_f044e"]
-[ext_resource type="Texture2D" uid="uid://bog4qb7pgkkvk" path="res://animations/platy-short/image7.png" id="9_p5sk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5feim"]
 size = Vector2(24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vq25p"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_gkc2q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_k57ok")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_sohdl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_x7frt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_k8yth")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_eqcbq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_f044e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_p5sk4")
-}],
-"loop": true,
-"name": &"platypus",
-"speed": 5.0
-}]
 
 [node name="BodySegment" type="Area2D"]
 collision_layer = 4
@@ -51,13 +12,9 @@ script = ExtResource("1_cm180")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_88wge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5feim")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-sprite_frames = SubResource("SpriteFrames_vq25p")
-animation = &"platypus"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
