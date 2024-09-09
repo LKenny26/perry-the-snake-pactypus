@@ -13,3 +13,6 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+#project.godot
+perry_the_snake_pactypus/project.godot
