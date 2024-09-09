@@ -18,7 +18,9 @@ var segment_distance: int = 20 				# the distance between body segments
 @export var alive: bool = true				# whether the player is still playing/moving or has died
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+#@onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var direction_pointer: Sprite2D = $DirectionPointer
+#@onready var direction_pointer: AnimatedSprite2D = $DirectionPointer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
@@ -40,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	# only update movement_direction when there's a gap in the walls
 	if can_move_in_direction(next_movement_direction, delta):
 		movement_direction = next_movement_direction
-		sprite_2d.rotation = movement_direction.angle() + PI / 2
+		sprite_2d.rotation = movement_direction.angle() #+ PI / 2 
 	
 	previous_position = position
 	velocity = movement_direction * speed
