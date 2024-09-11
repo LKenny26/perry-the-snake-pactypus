@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://rxdij3petonq"]
+[gd_scene load_steps=12 format=4 uid="uid://rxdij3petonq"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="Texture2D" uid="uid://dno2kmbc18xmx" path="res://Assets/tile40px.png" id="1_8jkqq"]
 [ext_resource type="PackedScene" uid="uid://db1oeulwh7nea" path="res://Scenes/PlayerHead.tscn" id="2_klp5w"]
+[ext_resource type="Texture2D" uid="uid://dw1oeqlghaeuy" path="res://animations/pellets/pellets.png" id="4_0cpc2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drdfv"]
 texture = ExtResource("1_8jkqq")
@@ -15,6 +16,42 @@ tile_size = Vector2i(40, 40)
 physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_drdfv")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjgp6"]
+atlas = ExtResource("4_0cpc2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adidr"]
+atlas = ExtResource("4_0cpc2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4fpv"]
+atlas = ExtResource("4_0cpc2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coq5i"]
+atlas = ExtResource("4_0cpc2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5rco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjgp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adidr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4fpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coq5i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8bcg8")
 
@@ -26,5 +63,14 @@ tile_set = SubResource("TileSet_jyuvq")
 
 [node name="PlayerHead" parent="." instance=ExtResource("2_klp5w")]
 position = Vector2(620, 540)
+
+[node name="Pellet" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pellet"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pellet/Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_p5rco")
+frame = 1
+frame_progress = 0.0173359
 
 [connection signal="new_body_segment" from="PlayerHead" to="." method="_on_player_new_body_segment"]
