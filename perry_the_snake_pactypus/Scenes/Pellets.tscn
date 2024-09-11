@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://chksci5lty82o"]
+[gd_scene load_steps=4 format=3 uid="uid://chksci5lty82o"]
 
 [ext_resource type="Texture2D" uid="uid://dw1oeqlghaeuy" path="res://Assets/pellets/pellets.png" id="1_fxb34"]
 
@@ -6,34 +6,13 @@
 atlas = ExtResource("1_fxb34")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_adidr"]
-atlas = ExtResource("1_fxb34")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m4fpv"]
-atlas = ExtResource("1_fxb34")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_coq5i"]
-atlas = ExtResource("1_fxb34")
-region = Rect2(48, 0, 16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_1udtw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vjgp6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_adidr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m4fpv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_coq5i")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
