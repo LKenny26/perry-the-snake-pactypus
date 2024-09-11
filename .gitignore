@@ -19,3 +19,6 @@ perry_the_snake_pactypus/project.godot
 
 #PC/Mac
 .DS_Store
+
+#GitHub
+.github/workflows
