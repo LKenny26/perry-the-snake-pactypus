@@ -43,6 +43,7 @@ jobs:
           include-templates: true
 
       - name: 🔬 Verify Setup
+        working-directory: ./perry_the_snake_pactypus
         run: |
           dotnet --version
           godot --version
