@@ -29,6 +29,7 @@ jobs:
           global-json-file: global.json
 
       - name: 📦 Restore Dependencies
+        working-directory: ./perry_the_snake_pactypus
         run: dotnet restore
 
       - uses: chickensoft-games/setup-godot@v1
@@ -49,9 +50,11 @@ jobs:
           godot --version
 
       - name: 🧑‍🔬 Generate .NET Bindings
+        working-directory: ./perry_the_snake_pactypus
         run: godot --headless --build-solutions --quit || exit 0
 
       - name: 🦺 Build Projects
+        working-directory: ./perry_the_snake_pactypus
         run: dotnet build
 
       # Do whatever you want!
