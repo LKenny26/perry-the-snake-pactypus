@@ -32,8 +32,8 @@ jobs:
       #     # Use the .NET SDK from global.json in the root of the repository.
       #     global-json-file: global.json
 
-      # - name: 📦 Restore Dependencies
-      #   run: dotnet restore
+      - name: 📦 Restore Dependencies
+        run: dotnet restore
 
       - uses: chickensoft-games/setup-godot@v1
         name: 🤖 Setup Godot
