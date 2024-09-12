@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://hy6cn3ryipis"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hk8b3"]
+
+[node name="Ghost" type="Area2D"]
+
+[node name="Fedora" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hk8b3")
