@@ -5,6 +5,7 @@ extends Node2D
 # the max number of segments the player can have at once (till they grow)
 var body_length: int = 25
 
+
 var body_segment_scene: PackedScene = load("res://Scenes/BodySegment.tscn")
 
 @onready var player: PlayerHead = $PlayerHead

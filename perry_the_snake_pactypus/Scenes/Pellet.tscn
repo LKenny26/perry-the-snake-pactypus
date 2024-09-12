@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://chksci5lty82o"]
+[gd_scene load_steps=6 format=3 uid="uid://chksci5lty82o"]
 
+[ext_resource type="Script" path="res://Scenes/Pellet.gd" id="1_btuo8"]
 [ext_resource type="Texture2D" uid="uid://dw1oeqlghaeuy" path="res://Assets/pellets/pellets.png" id="1_csha2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjgp6"]
@@ -21,6 +22,8 @@ animations = [{
 size = Vector2(18, 17)
 
 [node name="Pellet" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_btuo8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -31,3 +34,5 @@ sprite_frames = SubResource("SpriteFrames_1udtw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_n2vp7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
