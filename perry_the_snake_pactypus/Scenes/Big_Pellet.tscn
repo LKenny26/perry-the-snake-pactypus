@@ -1,6 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://hy6cn3ryipis"]
+[gd_scene load_steps=6 format=3 uid="uid://hy6cn3ryipis"]
 
 [ext_resource type="Script" path="res://Scenes/Pellet.gd" id="1_4blkh"]
+[ext_resource type="Texture2D" uid="uid://dw1oeqlghaeuy" path="res://Assets/pellets/pellets.png" id="2_s24nd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyf4v"]
+atlas = ExtResource("2_s24nd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thr6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyf4v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk8b3"]
 
@@ -11,5 +27,10 @@ should_allow_eating_ghosts = true
 [node name="Fedora" type="Sprite2D" parent="."]
 texture_filter = 1
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fedora"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_thr6m")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_hk8b3")
