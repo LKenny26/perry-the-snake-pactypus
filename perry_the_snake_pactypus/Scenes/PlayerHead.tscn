@@ -105,4 +105,4 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_leb4b")
 animation = &"platy-head"
 autoplay = "platy-head"
-frame_progress = 0.621862
+frame_progress = 0.274557

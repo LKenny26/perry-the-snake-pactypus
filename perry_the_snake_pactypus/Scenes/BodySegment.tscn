@@ -1,10 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://0bpum3h5endo"]
+[gd_scene load_steps=13 format=3 uid="uid://0bpum3h5endo"]
 
 [ext_resource type="Script" path="res://Scenes/body_segment.gd" id="1_cm180"]
 [ext_resource type="Texture2D" uid="uid://b68iqwgyfwj2t" path="res://animations/platy-body/IMG_9050.PNG" id="2_bh70a"]
+[ext_resource type="Texture2D" uid="uid://b0es12jurlyab" path="res://animations/tail/image0.png" id="3_poaay"]
+[ext_resource type="Texture2D" uid="uid://rca0oy1ldbb0" path="res://animations/tail/image1.png" id="4_wmao3"]
+[ext_resource type="Texture2D" uid="uid://b21tkt3oki8at" path="res://animations/tail/image2.png" id="5_m2hf4"]
+[ext_resource type="Texture2D" uid="uid://c7s3bw7df423r" path="res://animations/tail/image3.png" id="6_k650y"]
+[ext_resource type="Texture2D" uid="uid://beovieughntyw" path="res://animations/tail/image4.png" id="7_rkfra"]
+[ext_resource type="Texture2D" uid="uid://brybj0twulk0b" path="res://animations/tail/image5.png" id="8_ru8bo"]
+[ext_resource type="Texture2D" uid="uid://bisrgi3ya8sxw" path="res://animations/tail/image6.png" id="9_jmnkd"]
+[ext_resource type="Texture2D" uid="uid://dw554udik5a2k" path="res://animations/tail/image7.png" id="10_0tve2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5feim"]
 size = Vector2(24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d7h8c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bh70a")
+}],
+"loop": true,
+"name": &"body",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_poaay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wmao3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m2hf4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k650y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rkfra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ru8bo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jmnkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0tve2")
+}],
+"loop": true,
+"name": &"tail",
+"speed": 5.0
+}]
 
 [node name="BodySegment" type="Area2D"]
 collision_layer = 4
@@ -16,5 +64,11 @@ texture = ExtResource("2_bh70a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5feim")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.09, 0.09)
+sprite_frames = SubResource("SpriteFrames_d7h8c")
+animation = &"body"
+frame_progress = 0.0980825
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,6 +1,6 @@
 extends Area2D
 
-class_name BodySegment
+class_name TailSegment
 
 func _on_body_entered(body: Node2D):
 	
@@ -13,4 +13,3 @@ func _on_body_entered(body: Node2D):
 	# later on like ghosts.
 	if body is PlayerHead:
 		body.alive = false
-		
