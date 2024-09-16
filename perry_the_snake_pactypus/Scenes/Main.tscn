@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="Texture2D" uid="uid://dno2kmbc18xmx" path="res://Assets/tile40px.png" id="1_8jkqq"]
 [ext_resource type="PackedScene" uid="uid://db1oeulwh7nea" path="res://Scenes/PlayerHead.tscn" id="2_klp5w"]
-[ext_resource type="PackedScene" uid="uid://chksci5lty82o" path="res://Scenes/Pellet.tscn" id="4_viax7"]
+[ext_resource type="PackedScene" path="res://Scenes/Pellet.tscn" id="4_viax7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drdfv"]
 texture = ExtResource("1_8jkqq")
@@ -833,5 +833,19 @@ priority = 1
 [node name="Pellet200" parent="Pellets" instance=ExtResource("4_viax7")]
 position = Vector2(101, 699)
 priority = 1
+
+[node name="Length" type="Label" parent="."]
+offset_left = 235.0
+offset_right = 442.0
+offset_bottom = 42.0
+
+[node name="PelletCount" type="Label" parent="."]
+offset_right = 300.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="."]
+offset_left = 444.0
+offset_right = 637.0
+offset_bottom = 42.0
 
 [connection signal="new_body_segment" from="PlayerHead" to="." method="_on_player_new_body_segment"]
