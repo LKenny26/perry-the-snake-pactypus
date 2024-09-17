@@ -29,6 +29,7 @@ func _on_player_new_body_segment():
 func _ready():
 	for pellet in pellets_list.get_children():
 		pellet.pellet_eaten.connect(on_pellet_eaten)
+	$Lives.text = "Lives: "
 
 func on_pellet_eaten(should_allow_eating_ghosts: bool):
 	body_length += 0.5

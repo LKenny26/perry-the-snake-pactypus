@@ -27,6 +27,7 @@ var segment_distance: int = 20 				# the distance between body segments
 func _ready() -> void:
 	shape_query.shape = collision_shape_2d.shape
 	shape_query.collision_mask = 2
+	
 
 
 func _physics_process(delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://rxdij3petonq"]
+[gd_scene load_steps=18 format=4 uid="uid://rxdij3petonq"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="Texture2D" uid="uid://dno2kmbc18xmx" path="res://Assets/tile40px.png" id="1_8jkqq"]
@@ -6,6 +6,14 @@
 [ext_resource type="PackedScene" path="res://Scenes/Pellet.tscn" id="4_viax7"]
 [ext_resource type="FontFile" uid="uid://1mepshwxkhfg" path="res://animations/CorelDraw.ttf" id="5_y543j"]
 [ext_resource type="Texture2D" uid="uid://bgkou0ne8is1v" path="res://animations/doof_tower.jpg" id="6_bytvm"]
+[ext_resource type="Texture2D" uid="uid://botv8a0l1lyua" path="res://animations/platy-short/image0.png" id="7_i0wr8"]
+[ext_resource type="Texture2D" uid="uid://dcjypr2iibboe" path="res://animations/platy-short/image1.png" id="8_efg1m"]
+[ext_resource type="Texture2D" uid="uid://bx87okyxp2lt" path="res://animations/platy-short/image2.png" id="9_yspsn"]
+[ext_resource type="Texture2D" uid="uid://dyprk6a5wpoxp" path="res://animations/platy-short/image3.png" id="10_7nvsb"]
+[ext_resource type="Texture2D" uid="uid://epj0cyharcwv" path="res://animations/platy-short/image4.png" id="11_u64lt"]
+[ext_resource type="Texture2D" uid="uid://cspaoclhje22t" path="res://animations/platy-short/image5.png" id="12_2x5ud"]
+[ext_resource type="Texture2D" uid="uid://dqbbeqts6psqm" path="res://animations/platy-short/image6.png" id="13_ubvk7"]
+[ext_resource type="Texture2D" uid="uid://bog4qb7pgkkvk" path="res://animations/platy-short/image7.png" id="14_hhedw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drdfv"]
 texture = ExtResource("1_8jkqq")
@@ -17,6 +25,38 @@ texture_region_size = Vector2i(40, 40)
 tile_size = Vector2i(40, 40)
 physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_drdfv")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5e548"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_i0wr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_efg1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yspsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7nvsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u64lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2x5ud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ubvk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hhedw")
+}],
+"loop": true,
+"name": &"perry",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8bcg8")
@@ -863,5 +903,37 @@ offset_top = -184.0
 offset_right = 1565.0
 offset_bottom = 1011.0
 texture = ExtResource("6_bytvm")
+
+[node name="Lives" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 960.0
+offset_right = 231.0
+offset_bottom = 1006.0
+theme_override_fonts/font = ExtResource("5_y543j")
+theme_override_font_sizes/font_size = 35
+
+[node name="Life1" type="AnimatedSprite2D" parent="."]
+position = Vector2(175, 979)
+scale = Vector2(0.07, 0.07)
+sprite_frames = SubResource("SpriteFrames_5e548")
+animation = &"perry"
+autoplay = "perry"
+frame_progress = 0.207166
+
+[node name="Life2" type="AnimatedSprite2D" parent="."]
+position = Vector2(234, 978)
+scale = Vector2(0.07, 0.07)
+sprite_frames = SubResource("SpriteFrames_5e548")
+animation = &"perry"
+autoplay = "perry"
+frame_progress = 0.422787
+
+[node name="Life3" type="AnimatedSprite2D" parent="."]
+position = Vector2(288, 978)
+scale = Vector2(0.07, 0.07)
+sprite_frames = SubResource("SpriteFrames_5e548")
+animation = &"perry"
+autoplay = "perry"
+frame_progress = 0.240683
 
 [connection signal="new_body_segment" from="PlayerHead" to="." method="_on_player_new_body_segment"]
