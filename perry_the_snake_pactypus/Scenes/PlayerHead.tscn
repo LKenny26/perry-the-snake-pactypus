@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://db1oeulwh7nea"]
+[gd_scene load_steps=21 format=3 uid="uid://db1oeulwh7nea"]
 
 [ext_resource type="Script" path="res://Scenes/player_head.gd" id="1_a01rl"]
 [ext_resource type="Texture2D" uid="uid://rcwf33r5sw12" path="res://Assets/icon.svg" id="2_1w7sn"]
@@ -10,6 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://cspaoclhje22t" path="res://animations/platy-short/image5.png" id="8_0lr0k"]
 [ext_resource type="Texture2D" uid="uid://dqbbeqts6psqm" path="res://animations/platy-short/image6.png" id="9_uvq2b"]
 [ext_resource type="Texture2D" uid="uid://bog4qb7pgkkvk" path="res://animations/platy-short/image7.png" id="10_63hpt"]
+[ext_resource type="Texture2D" uid="uid://ddxgxs650fgp" path="res://animations/platy-head/image0.png" id="11_kap8f"]
+[ext_resource type="Texture2D" uid="uid://llv3cnnqwnvb" path="res://animations/platy-head/image1.png" id="12_ejai5"]
+[ext_resource type="Texture2D" uid="uid://bqtgnf3a8rrsi" path="res://animations/platy-head/image2.png" id="13_vvx1n"]
+[ext_resource type="Texture2D" uid="uid://olva6w6pfxmk" path="res://animations/platy-head/image3.png" id="14_qo2mp"]
+[ext_resource type="Texture2D" uid="uid://td4v7j43yv21" path="res://animations/platy-head/IMG_9042.PNG" id="15_tjujk"]
+[ext_resource type="Texture2D" uid="uid://c03m7bdh7qo7c" path="res://animations/platy-head/image4.png" id="16_s61su"]
+[ext_resource type="Texture2D" uid="uid://bcqd7yp5eakny" path="res://animations/platy-head/image5.png" id="17_h8dsr"]
+[ext_resource type="Texture2D" uid="uid://r4xjab5oqvs6" path="res://animations/platy-head/image6.png" id="18_ltksd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eg4g"]
 size = Vector2(37, 37)
@@ -44,6 +52,35 @@ animations = [{
 "loop": true,
 "name": &"platy",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_kap8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ejai5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vvx1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qo2mp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_tjujk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_s61su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_h8dsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ltksd")
+}],
+"loop": true,
+"name": &"platy-head",
+"speed": 5.0
 }]
 
 [node name="PlayerHead" type="CharacterBody2D"]
@@ -66,5 +103,6 @@ texture = ExtResource("2_1w7sn")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_leb4b")
-animation = &"platy"
-autoplay = "platy"
+animation = &"platy-head"
+autoplay = "platy-head"
+frame_progress = 0.274557
