@@ -918,7 +918,7 @@ scale = Vector2(0.07, 0.07)
 sprite_frames = SubResource("SpriteFrames_5e548")
 animation = &"perry"
 autoplay = "perry"
-frame_progress = 0.207166
+frame_progress = 0.102887
 
 [node name="Life2" type="AnimatedSprite2D" parent="."]
 position = Vector2(234, 978)
@@ -926,7 +926,7 @@ scale = Vector2(0.07, 0.07)
 sprite_frames = SubResource("SpriteFrames_5e548")
 animation = &"perry"
 autoplay = "perry"
-frame_progress = 0.422787
+frame_progress = 0.318508
 
 [node name="Life3" type="AnimatedSprite2D" parent="."]
 position = Vector2(288, 978)
@@ -934,6 +934,6 @@ scale = Vector2(0.07, 0.07)
 sprite_frames = SubResource("SpriteFrames_5e548")
 animation = &"perry"
 autoplay = "perry"
-frame_progress = 0.240683
+frame_progress = 0.136403
 
 [connection signal="new_body_segment" from="PlayerHead" to="." method="_on_player_new_body_segment"]

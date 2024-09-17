@@ -18,9 +18,7 @@ var segment_distance: int = 20 				# the distance between body segments
 @export var alive: bool = true				# whether the player is still playing/moving or has died
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
-#@onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var direction_pointer: Sprite2D = $DirectionPointer
-#@onready var direction_pointer: AnimatedSprite2D = $DirectionPointer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
@@ -82,6 +80,14 @@ func get_input() -> void:
 	# this is a visual indicator for the next direction the player wants to move
 	if next_movement_direction != Vector2.ZERO:
 		direction_pointer.position = next_movement_direction * direction_pointer.position.length()
+		if next_movement_direction == Vector2.RIGHT:
+			direction_pointer.rotation_degrees = 0
+		elif next_movement_direction == Vector2.DOWN:
+			direction_pointer.rotation_degrees = 90
+		elif next_movement_direction == Vector2.LEFT:
+			direction_pointer.rotation_degrees = 180
+		else:
+			direction_pointer.rotation_degrees = 270
 	
 		
 # kinda "raycasts" a shape into the next direction to see if theres a wall there
