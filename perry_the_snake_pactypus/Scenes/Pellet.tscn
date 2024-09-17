@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://chksci5lty82o"]
+
+[ext_resource type="Script" path="res://Scenes/Pellet.gd" id="1_btuo8"]
+[ext_resource type="Texture2D" uid="uid://dw1oeqlghaeuy" path="res://Assets/pellets/pellets.png" id="1_csha2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjgp6"]
+atlas = ExtResource("1_csha2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1udtw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjgp6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2vp7"]
+size = Vector2(18, 17)
+
+[node name="Pellet" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_btuo8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1udtw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_n2vp7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
