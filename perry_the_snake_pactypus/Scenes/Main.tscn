@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://rxdij3petonq"]
+[gd_scene load_steps=9 format=4 uid="uid://rxdij3petonq"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="Texture2D" uid="uid://dno2kmbc18xmx" path="res://Assets/tile40px.png" id="1_8jkqq"]
 [ext_resource type="PackedScene" uid="uid://db1oeulwh7nea" path="res://Scenes/PlayerHead.tscn" id="2_klp5w"]
 [ext_resource type="PackedScene" path="res://Scenes/Pellet.tscn" id="4_viax7"]
+[ext_resource type="FontFile" uid="uid://1mepshwxkhfg" path="res://animations/CorelDraw.ttf" id="5_y543j"]
+[ext_resource type="Texture2D" uid="uid://bgkou0ne8is1v" path="res://animations/doof_tower.jpg" id="6_bytvm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drdfv"]
 texture = ExtResource("1_8jkqq")
@@ -835,17 +837,31 @@ position = Vector2(101, 699)
 priority = 1
 
 [node name="Length" type="Label" parent="."]
-offset_left = 235.0
-offset_right = 442.0
+offset_left = 401.0
+offset_right = 716.0
 offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("5_y543j")
+theme_override_font_sizes/font_size = 35
 
 [node name="PelletCount" type="Label" parent="."]
 offset_right = 300.0
 offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("5_y543j")
+theme_override_font_sizes/font_size = 35
 
 [node name="Score" type="Label" parent="."]
-offset_left = 444.0
-offset_right = 637.0
+offset_left = 689.0
+offset_right = 1001.0
 offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("5_y543j")
+theme_override_font_sizes/font_size = 35
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -3
+offset_left = -736.0
+offset_top = -184.0
+offset_right = 1565.0
+offset_bottom = 1011.0
+texture = ExtResource("6_bytvm")
 
 [connection signal="new_body_segment" from="PlayerHead" to="." method="_on_player_new_body_segment"]
