@@ -3,13 +3,16 @@ extends Node2D
 # idea: disincentivize the player from staying still by decreasing thier length/score after a couple seconds
 
 # the max number of segments the player can have at once (till they grow)
-var body_length: int = 25
+var body_length: float = 1.0
 
 var body_segment_scene: PackedScene = load("res://Scenes/BodySegment.tscn")
 var tail_segment_scene: PackedScene = load("res://Scenes/tail_segment.tscn")
 
+var pellets = 0
+
 @onready var player: PlayerHead = $PlayerHead
 @onready var body_segments_list: Node2D = $BodySegmentsList
+@onready var pellets_list: Node = $Pellets
 
 func _on_player_new_body_segment():
 	
@@ -29,3 +32,16 @@ func _on_player_new_body_segment():
 		#var tail_body_segment: Area2D = body_segments_list.get_child(1)
 		#tail_body_segment = new_tail
 		last_body_segment.queue_free()
+
+func _ready():
+	for pellet in pellets_list.get_children():
+		pellet.pellet_eaten.connect(on_pellet_eaten)
+	$Lives.text = "Lives: "
+
+func on_pellet_eaten(should_allow_eating_ghosts: bool):
+	body_length += 0.5
+	pellets = pellets + 1
+	$PelletCount.text = "Pellets Eaten: " + str(pellets)
+	$Length.text = "Length: " + str(body_length*2 - 2)
+	$Score.text = "Score: " + str(pellets*100 + (body_length * 2 - 2) * 500)
+	
