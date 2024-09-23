@@ -10,11 +10,7 @@ var next_movement_direction: Vector2 = Vector2.ZERO
 var movement_direction: Vector2 = Vector2.ZERO
 var shape_query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
 
-var previous_position: Vector2 = position		# updated each frame to calculate distance traveled
-var distance_progress: int = 0				# how far the player has moved since the last segment was added
-var segment_distance: int = 20 				# the distance between body segments
-
-@export var speed: int = 175
+@export var speed: int = 150
 @export var alive: bool = true				# whether the player is still playing/moving or has died
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -36,20 +32,19 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	
 	# player starts with no movement, so update instantly on first directional input
-	if movement_direction == Vector2.ZERO:
-		movement_direction = next_movement_direction
-		sprite.rotation = movement_direction.angle() #+ PI / 2 
+	#if movement_direction == Vector2.ZERO:
+		#movement_direction = next_movement_direction
+		#sprite.rotation = movement_direction.angle() #+ PI / 2 
 		#new_body_segment.emit()
 		
 	# only update movement_direction when there's a gap in the walls
-	elif can_move_in_direction(next_movement_direction, delta) && movement_direction != next_movement_direction:
+	if can_move_in_direction(next_movement_direction, delta) && movement_direction != next_movement_direction:
 		movement_direction = next_movement_direction
 		sprite.rotation = movement_direction.angle() #+ PI / 2 
 		
 		turning = true
 		
 	
-	previous_position = position
 	velocity = movement_direction * speed
 	move_and_slide()
 	

@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://db1oeulwh7nea"]
+[gd_scene load_steps=23 format=3 uid="uid://db1oeulwh7nea"]
 
 [ext_resource type="Script" path="res://Scenes/player_head.gd" id="1_a01rl"]
 [ext_resource type="Texture2D" uid="uid://b3qgujrrphwy0" path="res://animations/candace_finger.png" id="2_4yk61"]
+[ext_resource type="Texture2D" uid="uid://bvtb7aapt1tme" path="res://animations/no-background-platy/image0.png" id="3_bjl7v"]
 [ext_resource type="Texture2D" uid="uid://botv8a0l1lyua" path="res://animations/platy-short/image0.png" id="3_tcmlu"]
 [ext_resource type="Texture2D" uid="uid://dcjypr2iibboe" path="res://animations/platy-short/image1.png" id="4_2xu8w"]
+[ext_resource type="Texture2D" uid="uid://b3s1bfadurtqx" path="res://animations/no-background-platy/image1.png" id="4_6htk3"]
 [ext_resource type="Texture2D" uid="uid://bx87okyxp2lt" path="res://animations/platy-short/image2.png" id="5_ewgea"]
 [ext_resource type="Texture2D" uid="uid://dyprk6a5wpoxp" path="res://animations/platy-short/image3.png" id="6_8lq7p"]
 [ext_resource type="Texture2D" uid="uid://epj0cyharcwv" path="res://animations/platy-short/image4.png" id="7_qv6sy"]
@@ -24,6 +26,17 @@ size = Vector2(37, 37)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_leb4b"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bjl7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6htk3")
+}],
+"loop": true,
+"name": &"no-background",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_tcmlu")
@@ -91,15 +104,14 @@ script = ExtResource("1_a01rl")
 shape = SubResource("RectangleShape2D_2eg4g")
 
 [node name="DirectionPointer" type="Sprite2D" parent="."]
-position = Vector2(40, 0)
+position = Vector2(43, 0)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_4yk61")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(-3.8147e-06, -4)
+position = Vector2(4.76837e-07, 5.96046e-08)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_leb4b")
-animation = &"platy-head"
-autoplay = "platy-head"
-frame_progress = 0.649399
+animation = &"no-background"
+autoplay = "no-background"
+frame_progress = 0.69755

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_fjy7w"]
 [ext_resource type="PackedScene" uid="uid://db1oeulwh7nea" path="res://Scenes/PlayerHead.tscn" id="2_ep0gh"]
 
-[node name="Player" type="StaticBody2D"]
+[node name="Player" type="Node2D"]
 script = ExtResource("1_fjy7w")
 
 [node name="BodyLineBorder" type="Line2D" parent="."]
@@ -24,7 +24,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 round_precision = 14
 
-[node name="BodyCollisionShapeList" type="Node2D" parent="."]
+[node name="BodySegmentList" type="Node2D" parent="."]
 
 [node name="PlayerHead" parent="." instance=ExtResource("2_ep0gh")]
 
