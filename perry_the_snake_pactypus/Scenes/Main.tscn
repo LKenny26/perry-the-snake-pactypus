@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="Texture2D" uid="uid://dno2kmbc18xmx" path="res://Assets/tile40px.png" id="1_8jkqq"]
-[ext_resource type="PackedScene" path="res://Scenes/Player.tscn" id="2_xutkj"]
+[ext_resource type="PackedScene" uid="uid://db1oeulwh7nea" path="res://Scenes/PlayerHead.tscn" id="2_klp5w"]
 [ext_resource type="PackedScene" uid="uid://cof2bwjlpd6ea" path="res://Scenes/doof.tscn" id="4_e251c"]
-[ext_resource type="PackedScene" path="res://Scenes/Pellet.tscn" id="4_viax7"]
+[ext_resource type="PackedScene" uid="uid://chksci5lty82o" path="res://Scenes/Pellet.tscn" id="4_viax7"]
 [ext_resource type="FontFile" uid="uid://1mepshwxkhfg" path="res://animations/CorelDraw.ttf" id="5_y543j"]
 [ext_resource type="Texture2D" uid="uid://bgkou0ne8is1v" path="res://animations/doof_tower.jpg" id="6_bytvm"]
 [ext_resource type="Texture2D" uid="uid://botv8a0l1lyua" path="res://animations/platy-short/image0.png" id="7_i0wr8"]

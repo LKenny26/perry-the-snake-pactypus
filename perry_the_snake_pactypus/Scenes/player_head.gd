@@ -39,7 +39,13 @@ func _physics_process(delta: float) -> void:
 		
 	
 	velocity = movement_direction * speed
-	move_and_slide()
+	
+	# captures collision
+	var collision = move_and_collide(velocity*delta)
+	
+	# checks to see if collided with doof
+	if collision and collision.get_collider().is_in_group("doofs"):
+		self.alive = false
 	
 	# snaps the player to the grid so it's never off center. Also, create new point
 	if turning:
