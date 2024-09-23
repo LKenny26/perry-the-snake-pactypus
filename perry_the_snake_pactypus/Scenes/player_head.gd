@@ -45,7 +45,13 @@ func _physics_process(delta: float) -> void:
 	
 	previous_position = position
 	velocity = movement_direction * speed
-	move_and_slide()
+	
+	# captures collision
+	var collision = move_and_collide(velocity*delta)
+	
+	# checks to see if collided with doof
+	if collision and collision.get_collider().is_in_group("doofs"):
+		self.alive = false
 	
 	# find the distance traveled between this frame and the last one
 	var distance_traveled = (position - previous_position).length()

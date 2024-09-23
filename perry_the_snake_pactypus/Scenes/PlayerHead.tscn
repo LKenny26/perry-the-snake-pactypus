@@ -1,5 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://db1oeulwh7nea"]
-
+[gd_scene load_steps=22 format=3 uid="uid://db1oeulwh7nea"]
 
 [ext_resource type="Script" path="res://Scenes/player_head.gd" id="1_a01rl"]
 [ext_resource type="Texture2D" uid="uid://rcwf33r5sw12" path="res://Assets/icon.svg" id="2_1w7sn"]
@@ -86,7 +85,7 @@ animations = [{
 }]
 
 [node name="PlayerHead" type="CharacterBody2D"]
-collision_mask = 14
+collision_mask = 30
 script = ExtResource("1_a01rl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
