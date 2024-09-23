@@ -16,6 +16,9 @@ var body_segment_scene: PackedScene = load("res://Scenes/BodySegment.tscn")
 # that the movement looks smooth. The three nodes above all rely on this list.
 var body_points: PackedVector2Array = PackedVector2Array()
 
+# signal for main to show it has died
+signal dead
+
 # creates a new collider line between the last and second to last points
 func create_new_body_segment():
 	var new_segment = body_segment_scene.instantiate()
@@ -41,7 +44,15 @@ func _ready():
 	body_points.append(player_head.global_position)
 	create_new_body_segment()
 	
+func death():
+	queue_free()
+	emit_signal("dead")
+	
 func _process(delta: float):
+	# if not alive free perry
+	if !player_head.alive:
+		self.death()
+	
 	# update the last point in the list to the player's head position
 	body_points[body_points.size() - 1] = player_head.global_position
 	
