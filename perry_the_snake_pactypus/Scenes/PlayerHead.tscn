@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://db1oeulwh7nea"]
+[gd_scene load_steps=23 format=3 uid="uid://db1oeulwh7nea"]
 
 [ext_resource type="Script" path="res://Scenes/player_head.gd" id="1_a01rl"]
 [ext_resource type="Texture2D" uid="uid://b3qgujrrphwy0" path="res://animations/candace_finger.png" id="2_4yk61"]
