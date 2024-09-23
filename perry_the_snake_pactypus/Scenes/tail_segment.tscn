@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dt8b4a7abyrbn"]
+[gd_scene load_steps=12 format=3 uid="uid://dwpok1buc082x"]
 
 [ext_resource type="Script" path="res://Scenes/tail_segment.gd" id="1_dolta"]
 [ext_resource type="Texture2D" uid="uid://b0es12jurlyab" path="res://animations/tail/image0.png" id="2_pxus7"]
