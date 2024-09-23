@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://hy6cn3ryipis"]
+[gd_scene load_steps=6 format=3 uid="uid://bci1wdk1qpw0w"]
 
 [ext_resource type="Script" path="res://Scenes/Pellet.gd" id="1_4blkh"]
 [ext_resource type="Texture2D" uid="uid://dw1oeqlghaeuy" path="res://Assets/pellets/pellets.png" id="2_s24nd"]

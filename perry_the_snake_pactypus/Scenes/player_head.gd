@@ -20,7 +20,6 @@ var shape_query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.n
 func _ready() -> void:
 	shape_query.shape = collision_shape_2d.shape
 	shape_query.collision_mask = 2
-	#body_line.points = body_points
 
 
 func _physics_process(delta: float) -> void:
@@ -30,12 +29,6 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	get_input()
-	
-	# player starts with no movement, so update instantly on first directional input
-	#if movement_direction == Vector2.ZERO:
-		#movement_direction = next_movement_direction
-		#sprite.rotation = movement_direction.angle() #+ PI / 2 
-		#new_body_segment.emit()
 		
 	# only update movement_direction when there's a gap in the walls
 	if can_move_in_direction(next_movement_direction, delta) && movement_direction != next_movement_direction:
@@ -48,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	velocity = movement_direction * speed
 	move_and_slide()
 	
+	# snaps the player to the grid so it's never off center. Also, create new point
 	if turning:
 		global_position.x = round((global_position.x - 20) / 40) * 40 + 20
 		global_position.y = round((global_position.y - 20) / 40) * 40 + 20
