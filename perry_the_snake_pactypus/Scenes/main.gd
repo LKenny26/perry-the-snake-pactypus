@@ -50,7 +50,7 @@ func on_player_death():
 	elif lives == 0:
 		$Life1.set_visible(false)
 		
-	if lives >= 0:
+	if lives > 0:
 		await get_tree().create_timer(3.0).timeout
 		player = player_scene.instantiate()
 		player.dead.connect(on_player_death)
