@@ -45,8 +45,9 @@ func _ready():
 	create_new_body_segment()
 	
 func death():
-	queue_free()
 	emit_signal("dead")
+	queue_free()
+	
 	
 func _process(delta: float):
 	# if not alive free perry

@@ -949,3 +949,11 @@ frame_progress = 0.136403
 
 [node name="Player" parent="." instance=ExtResource("15_ibjey")]
 position = Vector2(500, 580)
+
+[node name="GameOver" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 267.0
+offset_right = 986.0
+offset_bottom = 712.0
+theme_override_fonts/font = ExtResource("5_y543j")
+horizontal_alignment = 1
