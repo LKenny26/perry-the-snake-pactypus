@@ -11,6 +11,7 @@ var cur_score = 0
 @onready var player: Node2D = $Player
 #var player: Node2D
 @onready var pellets_list: Node = $Pellets
+@onready var fedora: Node = $Big_Pellets
 var start = Vector2.ZERO
 
 var player_scene = load("res://Scenes/Player.tscn")
@@ -35,6 +36,9 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 	$Length.text = "Length: " + str(player.max_body_length / 20)
 	# pellets*100 + (player.max_body_length * 2 - 2) * 10
 	$Score.text = "Score: " + str(cur_score)
+	
+func on_fedora_eaten(should_allow_eating_ghosts: bool) -> void:
+	pass # Replace with function body.
 	
 func spawn_player():
 	player = player_scene.instantiate()
