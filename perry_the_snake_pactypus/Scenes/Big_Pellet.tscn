@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Big_Pellet.gd" id="1_0haap"]
 [ext_resource type="Texture2D" uid="uid://55wesos0d7mj" path="res://Assets/pellets/fedora.PNG" id="2_dulhi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gqfs"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ek3s"]
 
 [node name="Big Pellet" type="Area2D"]
 collision_layer = 8
@@ -15,6 +15,4 @@ texture = ExtResource("2_dulhi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
-shape = SubResource("RectangleShape2D_1gqfs")
-
-[connection signal="pellet_eaten" from="." to="." method="_on_pellet_eaten"]
+shape = SubResource("RectangleShape2D_2ek3s")
