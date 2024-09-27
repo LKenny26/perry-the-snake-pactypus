@@ -14,6 +14,7 @@ texture_filter = 1
 texture = ExtResource("2_dulhi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 8
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_byhd7")
 
