@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="Texture2D" uid="uid://dno2kmbc18xmx" path="res://Assets/tile40px.png" id="1_8jkqq"]
 [ext_resource type="PackedScene" uid="uid://cof2bwjlpd6ea" path="res://Scenes/doof.tscn" id="4_e251c"]
+[ext_resource type="PackedScene" uid="uid://bci1wdk1qpw0w" path="res://Scenes/Big_Pellet.tscn" id="4_hgyj1"]
 [ext_resource type="PackedScene" uid="uid://chksci5lty82o" path="res://Scenes/Pellet.tscn" id="4_viax7"]
-[ext_resource type="Script" path="res://Scenes/Big_Pellet.gd" id="5_wegey"]
 [ext_resource type="FontFile" uid="uid://1mepshwxkhfg" path="res://animations/CorelDraw.ttf" id="5_y543j"]
 [ext_resource type="Texture2D" uid="uid://bgkou0ne8is1v" path="res://animations/doof_tower.jpg" id="6_bytvm"]
 [ext_resource type="Texture2D" uid="uid://botv8a0l1lyua" path="res://animations/platy-short/image0.png" id="7_i0wr8"]
@@ -83,9 +83,8 @@ tile_set = SubResource("TileSet_jyuvq")
 
 [node name="Big_Pellets" type="Node" parent="."]
 
-[node name="Big Pellet" type="Area2D" parent="Big_Pellets"]
-priority = 1
-script = ExtResource("5_wegey")
+[node name="Big Pellet" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
+position = Vector2(500, 740)
 
 [node name="Pellets" type="Node" parent="."]
 
@@ -637,10 +636,6 @@ priority = 1
 position = Vector2(339, 740)
 priority = 1
 
-[node name="Pellet136" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(541, 740)
-priority = 1
-
 [node name="Pellet137" parent="Pellets" instance=ExtResource("4_viax7")]
 position = Vector2(702, 740)
 priority = 1
@@ -658,7 +653,7 @@ position = Vector2(582, 740)
 priority = 1
 
 [node name="Pellet141" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(501, 740)
+position = Vector2(540, 741)
 priority = 1
 
 [node name="Pellet142" parent="Pellets" instance=ExtResource("4_viax7")]
@@ -914,6 +909,7 @@ theme_override_fonts/font = ExtResource("5_y543j")
 theme_override_font_sizes/font_size = 35
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0.488054, 0.488054, 0.488054, 1)
 z_index = -3
 offset_left = -736.0
@@ -958,6 +954,7 @@ frame_progress = 0.136403
 position = Vector2(500, 580)
 
 [node name="GameOver" type="Label" parent="."]
+visible = false
 offset_left = 9.0
 offset_top = 267.0
 offset_right = 986.0
