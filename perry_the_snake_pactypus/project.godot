@@ -24,6 +24,8 @@ window/stretch/mode="viewport"
 [global_group]
 
 doofs=""
+player_head=""
+player_body=""
 
 [input]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/body_segment.gd" id="1_cm180"]
 
-[node name="BodySegment" type="Area2D"]
+[node name="BodySegment" type="Area2D" groups=["player_body"]]
 collision_layer = 4
 script = ExtResource("1_cm180")
 
