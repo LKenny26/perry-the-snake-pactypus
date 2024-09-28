@@ -83,6 +83,18 @@ tile_set = SubResource("TileSet_jyuvq")
 
 [node name="Big_Pellets" type="Node" parent="."]
 
+[node name="Big Pellet5" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
+position = Vector2(103, 903)
+
+[node name="Big Pellet3" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
+position = Vector2(897, 342)
+
+[node name="Big Pellet4" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
+position = Vector2(104, 342)
+
+[node name="Big Pellet2" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
+position = Vector2(898, 901)
+
 [node name="Big Pellet" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
 position = Vector2(500, 740)
 
@@ -146,10 +158,6 @@ priority = 1
 
 [node name="Pellet16" parent="Pellets" instance=ExtResource("4_viax7")]
 position = Vector2(819, 221)
-priority = 1
-
-[node name="Pellet15" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(900, 340)
 priority = 1
 
 [node name="Pellet14" parent="Pellets" instance=ExtResource("4_viax7")]
@@ -536,10 +544,6 @@ priority = 1
 position = Vector2(461, 900)
 priority = 1
 
-[node name="Pellet111" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(102, 901)
-priority = 1
-
 [node name="Pellet112" parent="Pellets" instance=ExtResource("4_viax7")]
 position = Vector2(260, 901)
 priority = 1
@@ -570,10 +574,6 @@ priority = 1
 
 [node name="Pellet119" parent="Pellets" instance=ExtResource("4_viax7")]
 position = Vector2(742, 899)
-priority = 1
-
-[node name="Pellet120" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(900, 899)
 priority = 1
 
 [node name="Pellet121" parent="Pellets" instance=ExtResource("4_viax7")]
@@ -808,10 +808,6 @@ priority = 1
 position = Vector2(900, 700)
 priority = 1
 
-[node name="Pellet181" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(101, 338)
-priority = 1
-
 [node name="Pellet182" parent="Pellets" instance=ExtResource("4_viax7")]
 position = Vector2(101, 298)
 priority = 1
@@ -964,4 +960,8 @@ theme_override_fonts/font = ExtResource("5_y543j")
 theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 
+[connection signal="body_entered" from="Big_Pellets/Big Pellet5" to="." method="_on_big_pellet_body_entered"]
+[connection signal="body_entered" from="Big_Pellets/Big Pellet3" to="." method="_on_big_pellet_body_entered"]
+[connection signal="body_entered" from="Big_Pellets/Big Pellet4" to="." method="_on_big_pellet_body_entered"]
+[connection signal="body_entered" from="Big_Pellets/Big Pellet2" to="." method="_on_big_pellet_body_entered"]
 [connection signal="body_entered" from="Big_Pellets/Big Pellet" to="." method="_on_big_pellet_body_entered"]
