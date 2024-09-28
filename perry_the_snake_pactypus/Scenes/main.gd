@@ -25,14 +25,15 @@ func _ready():
 	for pellet in pellets_list.get_children():
 		pellet.pellet_eaten.connect(on_pellet_eaten)
 	
-	for pellet in fedora.get_children():
-		pellet.pellet_eaten.connect(on_pellet_eaten)
+	for fedoras in fedora.get_children():
+		fedoras.fedora_eaten.connect(on_fedora_eaten)
 	
 	$Lives.text = "Lives: "
 	$PelletCount.text = "Pellets Eaten: 0"
 	$Length.text = "Length: 0"
 	$Score.text = "Score: 0"
 
+#When you eat a pellet it should...
 func on_pellet_eaten(should_allow_eating_ghosts: bool):
 	player.max_body_length += 20
 	pellets = pellets + 1
@@ -41,8 +42,9 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 	$Length.text = "Length: " + str(player.max_body_length / 20)
 	# pellets*100 + (player.max_body_length * 2 - 2) * 10
 	$Score.text = "Score: " + str(cur_score)
-	
-func on_fedora_eaten(should_allow_eating_ghosts: bool) -> void:
+
+#When you eat a fedora it should...
+func on_fedora_eaten(should_allow_eating_ghosts: bool):
 	pass # Replace with function body.
 	
 func spawn_player():

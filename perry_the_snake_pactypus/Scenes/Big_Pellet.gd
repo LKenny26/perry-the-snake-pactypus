@@ -4,11 +4,11 @@ extends Area2D
 
 class_name Big_Pellet
 
-signal pellet_eaten(should_allow_eating_ghosts: bool)
+signal fedora_eaten(should_allow_eating_ghosts: bool)
 
 @export var should_allow_eating_ghosts = true
 
 func _on_body_entered(body):
 	if body is PlayerHead:
-		pellet_eaten.emit(should_allow_eating_ghosts)
+		fedora_eaten.emit(should_allow_eating_ghosts)
 		queue_free()
