@@ -959,9 +959,3 @@ theme_override_colors/font_color = Color(0.631373, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_y543j")
 theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
-
-[connection signal="body_entered" from="Big_Pellets/Big Pellet5" to="." method="_on_big_pellet_body_entered"]
-[connection signal="body_entered" from="Big_Pellets/Big Pellet3" to="." method="_on_big_pellet_body_entered"]
-[connection signal="body_entered" from="Big_Pellets/Big Pellet4" to="." method="_on_big_pellet_body_entered"]
-[connection signal="body_entered" from="Big_Pellets/Big Pellet2" to="." method="_on_big_pellet_body_entered"]
-[connection signal="body_entered" from="Big_Pellets/Big Pellet" to="." method="_on_big_pellet_body_entered"]
