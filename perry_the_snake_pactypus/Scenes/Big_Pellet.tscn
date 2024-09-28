@@ -20,3 +20,5 @@ texture = ExtResource("2_dulhi")
 position = Vector2(0, -2.5)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_2ek3s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
