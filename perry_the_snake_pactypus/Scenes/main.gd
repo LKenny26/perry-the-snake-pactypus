@@ -21,8 +21,13 @@ func _ready():
 	start.x = 500
 	start.y = 580
 	player.dead.connect(on_player_death)
+	
 	for pellet in pellets_list.get_children():
 		pellet.pellet_eaten.connect(on_pellet_eaten)
+	
+	for pellet in fedora.get_children():
+		pellet.pellet_eaten.connect(on_pellet_eaten)
+	
 	$Lives.text = "Lives: "
 	$PelletCount.text = "Pellets Eaten: 0"
 	$Length.text = "Length: 0"
