@@ -1,7 +1,6 @@
 extends Area2D
 
 class_name BodySegment
-
 func _on_body_entered(body: Node2D):
 	
 	# ignore collisiosn with the last segment since it'll immediately colide with the player head
@@ -13,4 +12,8 @@ func _on_body_entered(body: Node2D):
 	# later on like ghosts.
 	if body is PlayerHead:
 		body.alive = false
+		
+	# checks to see if collided with doof
+	if body.is_in_group("doofs"):
+		body.body_collision()
 		

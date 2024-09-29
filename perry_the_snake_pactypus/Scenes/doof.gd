@@ -35,7 +35,7 @@ func actor_setup():
 	await get_tree().physics_frame # waits for the first physics frame before starting to move
 	$NavigationAgent2D.target_position = pos # sets doofs random target position to randomly generated vector
 
-# chooses a new random coordinate after 7 seconds
+# continues chasing player or choses random position every 1.5 second
 func _on_timer_timeout():
 	var pos
 	if !player:
@@ -56,3 +56,15 @@ func _on_navigation_agent_2d_navigation_finished() -> void:
 		
 	$NavigationAgent2D.target_position = pos
 	$Timer.start()
+
+# doof hits perry's body
+func body_collision() -> void:
+	var pos
+	$CollisionTimer.start() # looks for a random position for 5 seconds
+	$Timer.set_paused(true) # pauses timer that looks for player
+	pos = Vector2(randi_range(0, 1000), randi_range(0,1000))
+	$NavigationAgent2D.target_position = pos
+	
+# after doof hits body and can chase player
+func _on_collision_timer_timeout() -> void:
+	$Timer.set_paused(false) # unpauses main timer
