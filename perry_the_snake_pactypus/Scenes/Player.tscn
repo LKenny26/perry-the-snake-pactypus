@@ -12,5 +12,6 @@ script = ExtResource("1_fjy7w")
 [node name="BodyChain" parent="BodyChainList" instance=ExtResource("2_ycrcr")]
 
 [node name="PlayerHead" parent="." instance=ExtResource("2_ep0gh")]
+z_index = 5
 
 [connection signal="new_body_point" from="PlayerHead" to="." method="_on_player_head_new_body_point"]

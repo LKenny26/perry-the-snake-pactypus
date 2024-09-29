@@ -58,7 +58,3 @@ func on_player_death():
 		add_child(player)
 	else: 
 		$GameOver.text = "Game Over"
-
-
-func _on_warp_zone_2_area_entered(area):
-	pass # Replace with function body.

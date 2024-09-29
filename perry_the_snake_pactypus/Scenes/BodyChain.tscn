@@ -13,6 +13,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 round_precision = 14
+antialiased = true
 
 [node name="BodyLine" type="Line2D" parent="."]
 position = Vector2(-136, -75)
