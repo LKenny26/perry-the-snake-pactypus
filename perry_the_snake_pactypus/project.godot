@@ -63,3 +63,4 @@ pause-resume={
 2d_physics/layer_2="Wall"
 2d_physics/layer_3="Body Segment"
 2d_physics/layer_5="doofs"
+2d_physics/layer_6="Warp Zones"
