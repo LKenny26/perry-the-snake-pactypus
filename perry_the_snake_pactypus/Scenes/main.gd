@@ -60,4 +60,7 @@ func on_player_death():
 		$GameOver.text = "Game Over"
 		
 func _on_audio_stream_player_2d_finished() -> void:
-	$AudioLoop.playing = true
+	if randi_range(0, 9) == 0:
+		$SecretAudioLoop.playing = true
+	else:
+		$AudioLoop.playing = true
