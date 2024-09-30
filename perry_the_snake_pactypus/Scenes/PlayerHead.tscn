@@ -96,7 +96,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PlayerHead" type="CharacterBody2D"]
+[node name="PlayerHead" type="CharacterBody2D" groups=["player_head"]]
 collision_mask = 30
 script = ExtResource("1_a01rl")
 
@@ -115,3 +115,7 @@ sprite_frames = SubResource("SpriteFrames_leb4b")
 animation = &"no-background"
 autoplay = "no-background"
 frame_progress = 0.69755
+
+[node name="TurnTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true

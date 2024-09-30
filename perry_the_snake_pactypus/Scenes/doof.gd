@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
-@export var speed: int = 110
+@export var speed: int = 100
+
+var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player = get_tree().get_nodes_in_group("player_head")[0]
 	call_deferred("actor_setup")
 	$Timer.start()
 	pass # Replace with function body.
@@ -21,18 +24,52 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func actor_setup():
+	var pos
+	# if player is dead, chooses a random position
+	if !player:
+		pos = Vector2(randi_range(0, 1000), randi_range(0,1000))
+	else:
+		player = get_tree().get_nodes_in_group("player_head")[0] # reinitialize player
+		pos = player.global_position # gets player's head position
+	
 	await get_tree().physics_frame # waits for the first physics frame before starting to move
-	var pos = Vector2(randi_range(0, 1000), randi_range(0, 1000)) # generates random point in map
 	$NavigationAgent2D.target_position = pos # sets doofs random target position to randomly generated vector
 
-# chooses a new random coordinate after 7 seconds
+# continues chasing player or choses random position every 1.5 second
 func _on_timer_timeout():
-	var pos = Vector2(randi_range(0, 1000), randi_range(0, 1000))
+	var pos
+	if !player:
+		pos = Vector2(randi_range(0, 1000), randi_range(0,1000))
+	else:
+		pos = player.global_position
+		
 	$NavigationAgent2D.target_position = pos
 	$Timer.start()
 	
 # chooses a new random coordinate if the destination was reached
 func _on_navigation_agent_2d_navigation_finished() -> void:
-	var pos = Vector2(randi_range(0, 1000), randi_range(0, 1000))
+	var pos
+	if !player:
+		pos = Vector2(randi_range(0, 1000), randi_range(0,1000))
+	else:
+		pos = player.global_position
+		
 	$NavigationAgent2D.target_position = pos
 	$Timer.start()
+
+# doof hits perry's body
+func body_collision() -> void:
+	print("hadlks")
+	var pos
+	$CollisionTimer.start() # looks for a random position for 5 seconds
+	$Timer.set_paused(true) # pauses timer that looks for player
+	match randi_range(0, 3):
+		0: pos = Vector2(0,0)
+		1: pos = Vector2(0, 1000)
+		2: pos = Vector2(1000, 0)
+		3: pos = Vector2(1000, 1000)
+	$NavigationAgent2D.target_position = pos
+	
+# after doof hits body and can chase player
+func _on_collision_timer_timeout() -> void:
+	$Timer.set_paused(false) # unpauses main timer

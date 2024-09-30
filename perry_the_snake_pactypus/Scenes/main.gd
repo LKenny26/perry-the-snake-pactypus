@@ -72,5 +72,6 @@ func on_player_death():
 		player.dead.connect(on_player_death)
 		player.position = start
 		add_child(player)
+		$Doof.player = get_tree().get_nodes_in_group("player_head")[0] # reassigns player to Doof
 	else: 
 		$GameOver.text = "Game Over"
