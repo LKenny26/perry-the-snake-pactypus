@@ -11,6 +11,7 @@ var current_level_number = 1
 @onready var current_level: Level = get_child(0)
 
 @onready var life_icons: Node2D = $LifeIcons
+@onready var level_clear_text: Label = $LevelClear
 
 #var player: Node2D
 #@onready var pellets_list: Node = $Pellets
@@ -22,8 +23,9 @@ var player_scene: PackedScene = load("res://Scenes/Player/Player.tscn")
 
 var level1_scene: PackedScene = load("res://Scenes/Levels/Level1.tscn")
 var level2_scene: PackedScene = load("res://Scenes/Levels/Level2.tscn")
+var level3_scene: PackedScene = load("res://Scenes/Levels/Level3.tscn")
 
-var levels: Array[PackedScene] = [level1_scene, level2_scene]
+var levels: Array[PackedScene] = [level1_scene, level2_scene, level3_scene]
 
 
 func load_level(number: int):
@@ -71,41 +73,35 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 	$Score.text = "Score: " + str(cur_score)
 	
 	var pellet_layer = current_level.get_node("NavigationRegion2D/PelletLayer")
-	print(pellet_layer.get_child_count())
+	
 	if (pellet_layer.get_child_count() <= 1):
+		level_clear_text.visible = true
 		await get_tree().create_timer(2.0).timeout
+		level_clear_text.visible = false
 		current_level_number += 1
+		
+		if current_level_number > levels.size():
+			return
+		
 		load_level(current_level_number)
-		spawn_player()
-		await get_tree().create_timer(3.0).timeout
+		spawn_player(current_level.get_node("SpawnPosition").position)
 		
 	
-func spawn_player():
+func spawn_player(spawn_position: Vector2):
 	if player != null:
 		player.queue_free()
 		 
 	player = player_scene.instantiate()
 	player.dead.connect(on_player_death)
-	player.position = start
+	player.position = spawn_position
 	add_child(player)
 
 func on_player_death():
 	lives -= 1
 	life_icons.get_child(lives).set_visible(false)
-	
-	#if lives == 2:
-		#$Life3.set_visible(false)
-	#elif lives == 1: 
-		#$Life2.set_visible(false)
-	#elif lives == 0:
-		#$Life1.set_visible(false)
 		
 	if lives > 0:
 		await get_tree().create_timer(3.0).timeout
-		spawn_player()
-		#player = player_scene.instantiate()
-		#player.dead.connect(on_player_death)
-		#player.position = start
-		#add_child(player)
+		spawn_player(current_level.get_node("SpawnPosition").position)
 	else: 
 		$GameOver.text = "Game Over"

@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://djclr0vkb0pct"]
+[gd_scene load_steps=7 format=3 uid="uid://djclr0vkb0pct"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="PackedScene" uid="uid://wdnaj5k15k1m" path="res://Scenes/Levels/Level1.tscn" id="2_52nt7"]
 [ext_resource type="FontFile" uid="uid://1mepshwxkhfg" path="res://animations/CorelDraw.ttf" id="5_y543j"]
 [ext_resource type="Texture2D" uid="uid://bgkou0ne8is1v" path="res://animations/doof_tower.jpg" id="6_bytvm"]
 [ext_resource type="PackedScene" uid="uid://bh6qgdb4804jt" path="res://Scenes/Player/Player.tscn" id="15_ibjey"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r65r6"]
+bg_color = Color(0.338, 0.338, 0.338, 0.832)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8bcg8")
@@ -64,3 +71,17 @@ theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 
 [node name="LifeIcons" type="Node2D" parent="."]
+
+[node name="LevelClear" type="Label" parent="."]
+visible = false
+offset_left = 235.0
+offset_top = 449.0
+offset_right = 774.0
+offset_bottom = 513.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_y543j")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_r65r6")
+text = "Level Clear!"
+horizontal_alignment = 1
+vertical_alignment = 1
