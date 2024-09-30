@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://djclr0vkb0pct"]
+[gd_scene load_steps=21 format=4 uid="uid://djclr0vkb0pct"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="Texture2D" uid="uid://dno2kmbc18xmx" path="res://Assets/tile40px.png" id="1_8jkqq"]
@@ -450,6 +450,23 @@ tile_set = SubResource("TileSet_jyuvq")
 [node name="Doof" parent="." instance=ExtResource("4_e251c")]
 position = Vector2(101, 102)
 scale = Vector2(0.3, 0.3)
+
+[node name="Big_Pellets" type="Node" parent="."]
+
+[node name="Big_Pellet5" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
+position = Vector2(103, 903)
+
+[node name="Big_Pellet3" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
+position = Vector2(897, 342)
+
+[node name="Big_Pellet4" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
+position = Vector2(104, 342)
+
+[node name="Big_Pellet2" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
+position = Vector2(898, 901)
+
+[node name="Big_Pellet" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
+position = Vector2(500,740)
 
 [node name="Pellets" type="Node" parent="."]
 
