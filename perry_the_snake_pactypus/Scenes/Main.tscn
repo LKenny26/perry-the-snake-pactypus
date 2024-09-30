@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dno2kmbc18xmx" path="res://Assets/tile40px.png" id="1_8jkqq"]
 [ext_resource type="Texture2D" uid="uid://co0uc0sgm84u1" path="res://Assets/BrickTileset.png" id="4_61mfa"]
 [ext_resource type="PackedScene" uid="uid://cof2bwjlpd6ea" path="res://Scenes/doof.tscn" id="4_e251c"]
+[ext_resource type="PackedScene" uid="uid://bci1wdk1qpw0w" path="res://Scenes/Big_Pellet.tscn" id="4_hgyj1"]
 [ext_resource type="PackedScene" uid="uid://chksci5lty82o" path="res://Scenes/Pellet.tscn" id="4_viax7"]
 [ext_resource type="FontFile" uid="uid://1mepshwxkhfg" path="res://animations/CorelDraw.ttf" id="5_y543j"]
 [ext_resource type="Texture2D" uid="uid://bgkou0ne8is1v" path="res://animations/doof_tower.jpg" id="6_bytvm"]
@@ -513,10 +514,6 @@ priority = 1
 position = Vector2(819, 221)
 priority = 1
 
-[node name="Pellet15" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(900, 340)
-priority = 1
-
 [node name="Pellet14" parent="Pellets" instance=ExtResource("4_viax7")]
 position = Vector2(861, 340)
 priority = 1
@@ -897,10 +894,6 @@ priority = 1
 position = Vector2(461, 900)
 priority = 1
 
-[node name="Pellet111" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(102, 901)
-priority = 1
-
 [node name="Pellet112" parent="Pellets" instance=ExtResource("4_viax7")]
 position = Vector2(260, 901)
 priority = 1
@@ -931,10 +924,6 @@ priority = 1
 
 [node name="Pellet119" parent="Pellets" instance=ExtResource("4_viax7")]
 position = Vector2(742, 899)
-priority = 1
-
-[node name="Pellet120" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(900, 899)
 priority = 1
 
 [node name="Pellet121" parent="Pellets" instance=ExtResource("4_viax7")]
@@ -997,10 +986,6 @@ priority = 1
 position = Vector2(339, 740)
 priority = 1
 
-[node name="Pellet136" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(541, 740)
-priority = 1
-
 [node name="Pellet137" parent="Pellets" instance=ExtResource("4_viax7")]
 position = Vector2(702, 740)
 priority = 1
@@ -1018,7 +1003,7 @@ position = Vector2(582, 740)
 priority = 1
 
 [node name="Pellet141" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(501, 740)
+position = Vector2(540, 741)
 priority = 1
 
 [node name="Pellet142" parent="Pellets" instance=ExtResource("4_viax7")]
@@ -1169,10 +1154,6 @@ priority = 1
 position = Vector2(900, 700)
 priority = 1
 
-[node name="Pellet181" parent="Pellets" instance=ExtResource("4_viax7")]
-position = Vector2(101, 338)
-priority = 1
-
 [node name="Pellet182" parent="Pellets" instance=ExtResource("4_viax7")]
 position = Vector2(101, 298)
 priority = 1
@@ -1315,6 +1296,7 @@ frame_progress = 0.136403
 position = Vector2(500, 580)
 
 [node name="GameOver" type="Label" parent="."]
+visible = false
 offset_left = 9.0
 offset_top = 267.0
 offset_right = 986.0

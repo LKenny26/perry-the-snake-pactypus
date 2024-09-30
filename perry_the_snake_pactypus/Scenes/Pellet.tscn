@@ -25,9 +25,9 @@ size = Vector2(18, 17)
 collision_layer = 8
 script = ExtResource("1_btuo8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Pellet" type="Sprite2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pellet"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_1udtw")
 
