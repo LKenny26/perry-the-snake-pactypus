@@ -45,7 +45,7 @@ autostart = true
 shape = SubResource("CircleShape2D_taqak")
 
 [node name="CollisionTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 one_shot = true
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
