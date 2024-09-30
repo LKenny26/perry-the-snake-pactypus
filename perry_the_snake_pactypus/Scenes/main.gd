@@ -16,7 +16,7 @@ var current_level_number = 1
 #var player: Node2D
 #@onready var pellets_list: Node = $Pellets
 var start = Vector2.ZERO
-
+var previous_length: int = 40
 
 var life_icon_scene: PackedScene = load("res://Scenes/life_icon.tscn")
 var player_scene: PackedScene = load("res://Scenes/Player/Player.tscn")
@@ -80,7 +80,7 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 	
 	var pellet_layer = current_level.get_node("NavigationRegion2D/PelletLayer")
 	
-	if (pellet_layer.get_child_count() <= 1 || (current_level_number == 1 && pellets == 5)):
+	if (pellet_layer.get_child_count() <= 1):
 		level_clear_text.visible = true
 		await get_tree().create_timer(2.0).timeout
 		level_clear_text.visible = false
@@ -90,7 +90,8 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 			return
 		
 		load_level(current_level_number)
-		spawn_player(current_level.get_node("SpawnPosition").position)
+		spawn_player(current_level.get_node("SpawnPosition").position, true)
+		
 		
 #When you eat a fedora it should...
 func on_fedora_eaten(should_allow_eating_ghosts: bool):
@@ -100,7 +101,7 @@ func on_fedora_eaten(should_allow_eating_ghosts: bool):
 	player_head.can_eat_doofs = false
 	player_head.fedora_sprite.visible = false
 	
-func spawn_player(spawn_position: Vector2):
+func spawn_player(spawn_position: Vector2, new_level: bool):
 	if player != null:
 		player.queue_free()
 		 
@@ -108,15 +109,21 @@ func spawn_player(spawn_position: Vector2):
 	player_head = player.get_node("PlayerHead")
 	player.dead.connect(on_player_death)
 	player.position = spawn_position
+	
+	# keep length on respawn from death
+	if (!new_level):
+		player.max_body_length = previous_length
+	
 	add_child(player)
 
-func on_player_death():
+func on_player_death(body_length: int):
+	previous_length = body_length
 	lives -= 1
 	life_icons.get_child(lives).set_visible(false)
 		
 	if lives > 0:
 		await get_tree().create_timer(3.0).timeout
-		spawn_player(current_level.get_node("SpawnPosition").position)
+		spawn_player(current_level.get_node("SpawnPosition").position, false)
 		for doof in current_level.get_node("Doofs").get_children():
 			doof.player = get_tree().get_nodes_in_group("player_head")[0] # reassigns player to Doof
 	
