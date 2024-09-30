@@ -79,7 +79,7 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 	
 	var pellet_layer = current_level.get_node("NavigationRegion2D/PelletLayer")
 	
-	if (pellet_layer.get_child_count() <= 1):
+	if (pellet_layer.get_child_count() <= 1 || (current_level_number == 1 && pellets == 5)):
 		level_clear_text.visible = true
 		await get_tree().create_timer(2.0).timeout
 		level_clear_text.visible = false
