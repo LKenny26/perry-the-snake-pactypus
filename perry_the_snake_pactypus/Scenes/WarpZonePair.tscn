@@ -14,6 +14,7 @@ script = ExtResource("1_1oxgv")
 [node name="Zone1" type="Area2D" parent="."]
 position = Vector2(-480, 0)
 collision_layer = 32
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zone1"]
 rotation = -1.5708
@@ -22,6 +23,7 @@ shape = SubResource("RectangleShape2D_fbxp0")
 [node name="Zone2" type="Area2D" parent="."]
 position = Vector2(480, 0)
 collision_layer = 32
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zone2"]
 rotation = 1.5708
