@@ -1,9 +1,8 @@
 extends Node2D
 
 # idea: disincentivize the player from staying still by decreasing thier length/score after a couple seconds
-
 var pellets = 0
-var lives = 14
+var lives = 3
 var cur_score = 0
 var current_level_number = 1
 
@@ -44,7 +43,9 @@ func set_up_pellets(level: Level):
 	
 	for pellet in pellet_layer.get_children():
 		pellet.pellet_eaten.connect(on_pellet_eaten)
-
+		
+func toggle_nux():
+	lives = 14
 
 func _ready():
 	load_level(current_level_number)

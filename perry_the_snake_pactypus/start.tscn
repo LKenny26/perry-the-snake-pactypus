@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwc1d85sc2gjq"]
+
+[ext_resource type="Texture2D" uid="uid://bgkou0ne8is1v" path="res://animations/doof_tower.jpg" id="1_8phru"]
+[ext_resource type="Script" path="res://start.gd" id="1_x02mo"]
+[ext_resource type="FontFile" uid="uid://1mepshwxkhfg" path="res://animations/CorelDraw.ttf" id="2_g0dv4"]
+[ext_resource type="Script" path="res://button.gd" id="3_ycywa"]
+[ext_resource type="Texture2D" uid="uid://diqh4wrkrjclw" path="res://animations/play-button.png" id="4_2knot"]
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_x02mo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -325.0
+offset_top = 3.0
+offset_right = 1347.0
+offset_bottom = 995.0
+texture = ExtResource("1_8phru")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = 42.0
+offset_top = 179.0
+offset_right = 954.0
+offset_bottom = 421.0
+theme_override_fonts/font = ExtResource("2_g0dv4")
+theme_override_font_sizes/font_size = 100
+text = "      Perry the 
+Snake-Pactypus"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 30.0
+offset_top = 176.0
+offset_right = 962.0
+offset_bottom = 400.0
+color = Color(0.175, 0, 0.75, 0.376471)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 394.0
+offset_top = 500.0
+offset_right = 580.0
+offset_bottom = 591.0
+script = ExtResource("3_ycywa")
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 0
+offset_right = 186.0
+offset_bottom = 87.0
+texture = ExtResource("4_2knot")
+expand_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 398.0
+offset_top = 944.0
+offset_right = 606.0
+offset_bottom = 993.0
+theme_override_fonts/font = ExtResource("2_g0dv4")
+theme_override_font_sizes/font_size = 29
+text = "Nux Mode"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
