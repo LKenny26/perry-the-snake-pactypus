@@ -9,7 +9,7 @@ size = Vector2(6.8, 3.4)
 [sub_resource type="Environment" id="Environment_8oj7g"]
 background_mode = 3
 glow_enabled = true
-glow_blend_mode = 0
+glow_blend_mode = 1
 
 [node name="Big Pellet" type="Area2D"]
 collision_layer = 8
