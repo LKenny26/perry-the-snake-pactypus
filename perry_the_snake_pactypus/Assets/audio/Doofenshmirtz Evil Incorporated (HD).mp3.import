@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cag8r0lkk1373"
+path="res://.godot/imported/Doofenshmirtz Evil Incorporated (HD).mp3-83b2f4cd4d9bd95da4f7f49f07627eb4.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/Doofenshmirtz Evil Incorporated (HD).mp3"
+dest_files=["res://.godot/imported/Doofenshmirtz Evil Incorporated (HD).mp3-83b2f4cd4d9bd95da4f7f49f07627eb4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -58,3 +58,6 @@ func on_player_death():
 		add_child(player)
 	else: 
 		$GameOver.text = "Game Over"
+		
+func _on_audio_stream_player_2d_finished() -> void:
+	$AudioLoop.playing = true
