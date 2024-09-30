@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6hmoqlenfruh"]
+[gd_scene load_steps=3 format=3 uid="uid://c6hmoqlenfruh"]
 
 [ext_resource type="Script" path="res://Scenes/body_chain.gd" id="1_amtk2"]
 
-[node name="BodyChain" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_mh007"]
+radius = 19.0
+
+[node name="BodyChain" type="Area2D"]
+collision_layer = 128
+collision_mask = 17
 script = ExtResource("1_amtk2")
 
 [node name="BodyLineBorder" type="Line2D" parent="."]
@@ -25,3 +30,6 @@ end_cap_mode = 2
 round_precision = 14
 
 [node name="BodySegmentList" type="Node2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mh007")
