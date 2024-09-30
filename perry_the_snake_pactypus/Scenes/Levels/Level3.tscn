@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://3cqjanncr1xx" path="res://Scenes/Levels/TileSet.tres" id="1_2g4nq"]
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_utxep"]
-[ext_resource type="PackedScene" uid="uid://dkeux0u1w21fr" path="res://Scenes/WarpZonePair.tscn" id="2_1pw1j"]
+[ext_resource type="PackedScene" uid="uid://cy7qxgknrqfff" path="res://Scenes/WarpZonePair.tscn" id="2_1pw1j"]
 [ext_resource type="PackedScene" uid="uid://cof2bwjlpd6ea" path="res://Scenes/doof.tscn" id="4_b6fsf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_327r8"]
