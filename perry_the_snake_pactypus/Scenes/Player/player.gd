@@ -1,6 +1,6 @@
 extends Node2D
 
-var body_chain_scene: PackedScene = load("res://Scenes/BodyChain.tscn")
+var body_chain_scene: PackedScene = load("res://Scenes/Player/BodyChain.tscn")
 
 # max length the player can be (until the eat more pellets)
 @export var max_body_length: float = 40
@@ -34,8 +34,14 @@ func _process(delta: float):
 	if first_chain != last_chain:
 		first_chain.body_line.end_cap_mode = Line2D.LINE_CAP_BOX
 		first_chain.body_line_border.end_cap_mode = Line2D.LINE_CAP_BOX
+		first_chain.body_line.begin_cap_mode = Line2D.LINE_CAP_ROUND
+		first_chain.body_line_border.begin_cap_mode = Line2D.LINE_CAP_ROUND
+		
 		last_chain.body_line.begin_cap_mode = Line2D.LINE_CAP_BOX
 		last_chain.body_line_border.begin_cap_mode = Line2D.LINE_CAP_BOX
+		last_chain.body_line.end_cap_mode = Line2D.LINE_CAP_ROUND
+		last_chain.body_line_border.end_cap_mode = Line2D.LINE_CAP_ROUND
+		
 	else:
 		first_chain.body_line.begin_cap_mode = Line2D.LINE_CAP_ROUND
 		first_chain.body_line.end_cap_mode = Line2D.LINE_CAP_ROUND
