@@ -1,9 +1,8 @@
 extends Node2D
 
 # idea: disincentivize the player from staying still by decreasing thier length/score after a couple seconds
-
 var pellets = 0
-var lives = 14
+var lives = 3
 var cur_score = 0
 var current_level_number = 1
 
@@ -39,6 +38,8 @@ func load_level(number: int):
 	move_child(current_level, 0)
 	call_deferred("set_up_pellets", current_level)
 
+func toggle_nux():
+	lives = 14
 
 func set_up_pellets(level: Level):
 	var pellet_layer: TileMapLayer = level.get_node("NavigationRegion2D/PelletLayer")
