@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://djclr0vkb0pct"]
+[gd_scene load_steps=28 format=4 uid="uid://djclr0vkb0pct"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="Texture2D" uid="uid://dno2kmbc18xmx" path="res://Assets/tile40px.png" id="1_8jkqq"]
@@ -16,11 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://dqbbeqts6psqm" path="res://animations/platy-short/image6.png" id="13_ubvk7"]
 [ext_resource type="Texture2D" uid="uid://bog4qb7pgkkvk" path="res://animations/platy-short/image7.png" id="14_hhedw"]
 [ext_resource type="PackedScene" uid="uid://bh6qgdb4804jt" path="res://Scenes/Player.tscn" id="15_ibjey"]
-[ext_resource type="PackedScene" path="res://Scenes/WarpZonePair.tscn" id="16_58y7h"]
+[ext_resource type="PackedScene" uid="uid://dkeux0u1w21fr" path="res://Scenes/WarpZonePair.tscn" id="16_58y7h"]
 [ext_resource type="AudioStream" uid="uid://cag8r0lkk1373" path="res://Assets/audio/Doofenshmirtz Evil Incorporated (HD).mp3" id="18_pk741"]
 [ext_resource type="AudioStream" uid="uid://ch2degys52nr7" path="res://Assets/audio/SIMP.mp3" id="19_lbw86"]
 [ext_resource type="AudioStream" uid="uid://cquir23ouu6ik" path="res://Assets/audio/Perry The Platypus Theme (Instrumental).mp3" id="20_x2x0n"]
 [ext_resource type="AudioStream" uid="uid://5sbh74w1q1dd" path="res://Assets/audio/Perry The Platypus.mp3" id="21_hllxs"]
+[ext_resource type="AudioStream" uid="uid://b2j1eeoweguix" path="res://Assets/audio/A Platypus.mp3" id="21_yv7sn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mc5ch"]
 vertices = PackedVector2Array(899, 221, 701, 221, 299, 219, 301, 219, 901, 901, 99, 901, 459, 899, 461, 899, 101, 899, 979, 499, 981.039, 18, 982.961, 982.977, 979, 501, 979, 21, 899, 661, 741, 661, 619, 659, 621, 659, 739, 741, 661, 741, 459, 739, 461, 739, 619, 381, 501, 381, 459, 379, 461, 379, 459, 661, 261, 661, 299, 659, 301, 659, 899, 219, 899, 101, 901, 99, 901, 341, 619, 579, 621, 461, 619, 581, 621, 459, 739, 739, 739, 661, 741, 819, 541, 661, 539, 659, 299, 499, 299, 221, 301, 461, 221, 659, 259, 661, 539, 99, 701, 101, 621, 221, 621, 301, 619, 299, 619, 221, 541, 301, 539, 299, 539, 379, 541, 379, 899, 339, 781, 341, 779, 339, 779, 459, 781, 499, 901, 659, 901, 741, 899, 739, 781, 659, 779, 659, 539, 739, 541, 739, 821, 741, 819, 739, 819, 819, 821, 819, 901, 819, 899, 899, 899, 821, 739, 821, 661, 821, 659, 819, 659, 741, 341, 741, 261, 739, 541, 821, 539, 819, 539, 899, 541, 899, 261, 741, 261, 821, 259, 819, 101, 821, 181, 819, 99, 819, 179, 819, 979, 979, 18, 982.008, 21, 979, 18, 18, 21, 501, 21, 21, 701, 459, 699, 459, 699, 221, 381, 221, 101, 219, 781, 501, 779, 461, 501, 579, 499, 579, 499, 381, 381, 381, 379, 379, 379, 459, 381, 579, 181, 739, 179, 741, 101, 739, 99, 741, 99, 659, 101, 661, 219, 659, 701, 219, 699, 219, 699, 101, 541, 101, 539, 219, 541, 219, 21, 499, 219, 499, 219, 501, 701, 461, 699, 461, 379, 659, 299, 501, 221, 499, 221, 501, 701, 659, 699, 659, 621, 379, 461, 299, 459, 301, 381, 299, 379, 301, 379, 221, 301, 221, 381, 581, 381, 659, 379, 461, 461, 659, 301, 459, 101, 221, 461, 219, 459, 219, 461, 99, 459, 101, 99, 99, 301, 101, 461, 819, 459, 821, 341, 819, 339, 821, 339, 741, 219, 341, 221, 339, 101, 339, 99, 341, 101, 101, 299, 101)
@@ -1342,6 +1343,9 @@ volume_db = -10.895
 [node name="AudioLoop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_x2x0n")
 volume_db = -5.0
+
+[node name="APlatypus" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_yv7sn")
 
 [node name="PerryAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_hllxs")
