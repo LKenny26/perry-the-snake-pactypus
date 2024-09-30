@@ -14,8 +14,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_28b3l"]
-radius = 62.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_taqak"]
+radius = 58.0086
 
 [node name="Doof" type="CharacterBody2D" groups=["doofs"]]
 collision_layer = 16
@@ -29,18 +29,25 @@ position = Vector2(-6.5, 2.00001)
 scale = Vector2(0.239815, 0.222222)
 sprite_frames = SubResource("SpriteFrames_al1dl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_28b3l")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." groups=["doofs"]]
 path_max_distance = 500.0
 navigation_layers = 2
-path_postprocessing = 1
+avoidance_enabled = true
+radius = 100.0
+avoidance_mask = 3
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_taqak")
+
+[node name="CollisionTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CollisionTimer" to="." method="_on_collision_timer_timeout"]
