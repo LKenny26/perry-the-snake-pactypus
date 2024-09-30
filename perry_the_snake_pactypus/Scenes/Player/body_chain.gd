@@ -2,7 +2,7 @@ extends Node2D
 
 class_name BodyChain
 
-var body_segment_scene: PackedScene = load("res://Scenes/BodySegment.tscn")
+var body_segment_scene: PackedScene = load("res://Scenes/Player/BodySegment.tscn")
 
 @onready var body_line: Line2D = $BodyLine					# visual only - the colored line
 @onready var body_line_border: Line2D = $BodyLineBorder		# visual only - the black border
@@ -43,7 +43,7 @@ func _ready():
 	body_line_border.global_position = Vector2.ZERO
 	body_segment_list.global_position = Vector2.ZERO
 	
-	body_points.append(player_head.global_position + Vector2.LEFT)
+	body_points.append(player_head.global_position + Vector2(0.01, 0))
 	body_points.append(player_head.global_position)
 	create_new_body_segment()
 	
@@ -71,8 +71,9 @@ func update_tail(delta: float):
 	
 	# if the first two points are very close, delete the first point. This happens
 	# when the moving tail rounds a corner.
-	if (abs(body_points[0].distance_to(body_points[1])) < 10 && !just_created):
+	if (abs(body_points[0].distance_to(body_points[1])) < 10): # && !just_created):
 		body_points.remove_at(0)
+		print('free')
 		first.queue_free()
 
 
