@@ -5,7 +5,7 @@ extends Node2D
 var pellets = 0
 var lives = 14
 var cur_score = 0
-var current_level_number = 2
+var current_level_number = 1
 
 @onready var player: Node2D = $Player
 @onready var current_level: Level = get_child(0)
