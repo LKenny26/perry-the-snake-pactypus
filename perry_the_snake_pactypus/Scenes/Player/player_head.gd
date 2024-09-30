@@ -6,6 +6,7 @@ signal new_body_point
 
 # pacman stuff adapted from this tutorial: https://www.youtube.com/watch?v=CncJvOEM3OA&t=932s
 
+var can_eat_doofs: bool = false
 var next_movement_direction: Vector2 = Vector2.ZERO
 var movement_direction: Vector2 = Vector2.ZERO
 var shape_query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
@@ -15,6 +16,7 @@ var sound_played = false
 @export var alive: bool = true				# whether the player is still playing/moving or has died
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var fedora_sprite: Sprite2D = $AnimatedSprite2D/FedoraSprite
 @onready var direction_pointer: Sprite2D = $DirectionPointer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var turn_timer: Timer = $TurnTimer
@@ -55,7 +57,13 @@ func _physics_process(delta: float) -> void:
 			sound_played = true
 			get_parent().get_parent().get_node("APlatypus").playing = true
 			print("I PLAYED")
-		self.alive = false
+			
+		var doof = collision.get_collider()
+			
+		if self.can_eat_doofs:
+			doof.queue_free()
+		else:
+			self.alive = false
 	
 	# snaps the player to the grid so it's never off center. Also, create new point
 	if turning:

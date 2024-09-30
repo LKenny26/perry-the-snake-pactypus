@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://3cqjanncr1xx"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://3cqjanncr1xx"]
 
 [ext_resource type="Texture2D" uid="uid://dno2kmbc18xmx" path="res://Assets/tile40px.png" id="1_7nh5d"]
 [ext_resource type="Texture2D" uid="uid://co0uc0sgm84u1" path="res://Assets/BrickTileset.png" id="2_tpurc"]
 [ext_resource type="PackedScene" uid="uid://chksci5lty82o" path="res://Scenes/Pellet.tscn" id="3_guief"]
+[ext_resource type="PackedScene" uid="uid://bci1wdk1qpw0w" path="res://Scenes/Big_Pellet.tscn" id="4_bhkvg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drdfv"]
 texture = ExtResource("1_7nh5d")
@@ -376,6 +377,7 @@ texture_region_size = Vector2i(40, 40)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gi18m"]
 scenes/1/scene = ExtResource("3_guief")
+scenes/3/scene = ExtResource("4_bhkvg")
 
 [resource]
 tile_size = Vector2i(40, 40)

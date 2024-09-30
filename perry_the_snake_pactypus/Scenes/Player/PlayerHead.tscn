@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://db1oeulwh7nea"]
+[gd_scene load_steps=24 format=3 uid="uid://db1oeulwh7nea"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player_head.gd" id="1_a01rl"]
 [ext_resource type="Texture2D" uid="uid://b3qgujrrphwy0" path="res://animations/candace_finger.png" id="2_4yk61"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c03m7bdh7qo7c" path="res://animations/platy-head/image4.png" id="16_s61su"]
 [ext_resource type="Texture2D" uid="uid://bcqd7yp5eakny" path="res://animations/platy-head/image5.png" id="17_h8dsr"]
 [ext_resource type="Texture2D" uid="uid://r4xjab5oqvs6" path="res://animations/platy-head/image6.png" id="18_ltksd"]
+[ext_resource type="Texture2D" uid="uid://j0kw7s1sr2ji" path="res://Assets/pellets/fedora.png" id="21_s05ag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eg4g"]
 size = Vector2(37, 37)
@@ -115,6 +116,12 @@ sprite_frames = SubResource("SpriteFrames_leb4b")
 animation = &"no-background"
 autoplay = "no-background"
 frame_progress = 0.69755
+
+[node name="FedoraSprite" type="Sprite2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(-10, -190)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("21_s05ag")
 
 [node name="TurnTimer" type="Timer" parent="."]
 wait_time = 0.25
