@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	if collision and collision.get_collider().is_in_group("doofs"):
 		if !sound_played:
 			sound_played = true
-			get_parent().get_parent().get_node("PerryAudio").playing = true
+			get_parent().get_parent().get_node("APlatypus").playing = true
 			print("I PLAYED")
 		self.alive = false
 	
