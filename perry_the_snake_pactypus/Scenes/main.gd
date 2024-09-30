@@ -6,6 +6,8 @@ var lives = 3
 var cur_score = 0
 var current_level_number = 1
 
+signal endGame
+
 @onready var player: Node2D = $Player
 @onready var player_head: PlayerHead = $Player/PlayerHead
 @onready var current_level: Level = get_child(0)
@@ -128,7 +130,11 @@ func on_player_death(body_length: int):
 			doof.player = get_tree().get_nodes_in_group("player_head")[0] # reassigns player to Doof
 	
 	else: 
-		$GameOver.text = "Game Over"
+		$GameOver.text = "Game Over\nEnd Score: " + str(cur_score)
+		await get_tree().create_timer(5).timeout
+		emit_signal("endGame")
+		queue_free()
+		
 		
 func _on_audio_stream_player_2d_finished() -> void:
 	if randi_range(0, 9) == 0:

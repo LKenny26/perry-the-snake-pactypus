@@ -12,9 +12,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func reset():
+	visible = true
+
 func hide_me() -> void:	
 	visible = false
 	var main_scene = preload("res://Scenes/Main.tscn").instantiate()
+	main_scene.endGame.connect(reset)
 	if($CheckButton.button_pressed == true):
 		main_scene.toggle_nux()
 	get_tree().root.add_child(main_scene)
