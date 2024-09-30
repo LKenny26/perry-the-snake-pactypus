@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://db1oeulwh7nea"]
 
-[ext_resource type="Script" path="res://Scenes/player_head.gd" id="1_a01rl"]
+[ext_resource type="Script" path="res://Scenes/Player/player_head.gd" id="1_a01rl"]
 [ext_resource type="Texture2D" uid="uid://b3qgujrrphwy0" path="res://animations/candace_finger.png" id="2_4yk61"]
 [ext_resource type="Texture2D" uid="uid://bvtb7aapt1tme" path="res://animations/no-background-platy/image0.png" id="3_bjl7v"]
 [ext_resource type="Texture2D" uid="uid://botv8a0l1lyua" path="res://animations/platy-short/image0.png" id="3_tcmlu"]

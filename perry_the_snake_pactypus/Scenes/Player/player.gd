@@ -1,6 +1,6 @@
 extends Node2D
 
-var body_chain_scene: PackedScene = load("res://Scenes/BodyChain.tscn")
+var body_chain_scene: PackedScene = load("res://Scenes/Player/BodyChain.tscn")
 
 # max length the player can be (until the eat more pellets)
 @export var max_body_length: float = 40

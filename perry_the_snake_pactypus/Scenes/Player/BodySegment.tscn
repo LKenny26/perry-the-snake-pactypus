@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://0bpum3h5endo"]
 
-[ext_resource type="Script" path="res://Scenes/body_segment.gd" id="1_cm180"]
+[ext_resource type="Script" path="res://Scenes/Player/body_segment.gd" id="1_cm180"]
+
 
 [node name="BodySegment" type="Area2D"]
 collision_layer = 4
