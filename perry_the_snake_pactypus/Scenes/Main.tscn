@@ -465,6 +465,10 @@ position = Vector2(898, 901)
 [node name="Big_Pellet" parent="Big_Pellets" instance=ExtResource("4_hgyj1")]
 position = Vector2(500,740)
 
+[node name="Doof" parent="." instance=ExtResource("4_e251c")]
+position = Vector2(101, 102)
+scale = Vector2(0.3, 0.3)
+
 [node name="Pellets" type="Node" parent="."]
 
 [node name="Pellet201" parent="Pellets" instance=ExtResource("4_viax7")]
