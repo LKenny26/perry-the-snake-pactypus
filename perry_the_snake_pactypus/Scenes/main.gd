@@ -12,6 +12,8 @@ var cur_score = 0
 #var player: Node2D
 @onready var pellets_list: Node = $Pellets
 @onready var fedora: Node = $Big_Pellets
+@onready var head: PlayerHead = $Player/PlayerHead
+
 var start = Vector2.ZERO
 
 var player_scene = load("res://Scenes/Player.tscn")
@@ -45,12 +47,13 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 
 #When you eat a fedora it should...
 func on_fedora_eaten(should_allow_eating_ghosts: bool):
-	var player_head = player as PlayerHead
-	if player_head:
-		player_head.can_eat_doofs = should_allow_eating_ghosts
+	if head:
+		head.can_eat_doofs = true
+		await get_tree().create_timer(10.0).timeout
+		head.can_eat_doofs = false
 	
 func spawn_player():
-	player = player_scene.instantiate() as PlayerHead
+	player = player_scene.instantiate()
 	player.dead.connect(on_player_death)
 	add_child(player)
 

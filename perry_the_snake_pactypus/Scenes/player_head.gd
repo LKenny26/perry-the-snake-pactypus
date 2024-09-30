@@ -19,7 +19,7 @@ var can_eat_doofs = false
 @onready var direction_pointer: Sprite2D = $DirectionPointer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-@onready var fedora: Node = $Big_Pellets
+#@onready var fedora: Node = $Big_Pellets
 
 func _ready() -> void:
 	shape_query.shape = collision_shape_2d.shape
