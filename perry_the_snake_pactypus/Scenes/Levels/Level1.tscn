@@ -410,13 +410,15 @@ tile_set = ExtResource("1_iw3br")
 [node name="WarpZonePair" parent="." instance=ExtResource("5_766v5")]
 position = Vector2(500, 500)
 
-[node name="Doof" parent="." instance=ExtResource("6_2wj7w")]
-position = Vector2(109, 104)
-
-[node name="NavigationAgent2D" parent="Doof" index="1"]
-navigation_layers = 1
-
 [node name="SpawnPosition" type="Marker2D" parent="."]
 position = Vector2(500, 580)
 
-[editable path="Doof"]
+[node name="Doofs" type="Node2D" parent="."]
+
+[node name="Doof" parent="Doofs" instance=ExtResource("6_2wj7w")]
+position = Vector2(109, 104)
+
+[node name="NavigationAgent2D" parent="Doofs/Doof" index="1"]
+navigation_layers = 1
+
+[editable path="Doofs/Doof"]

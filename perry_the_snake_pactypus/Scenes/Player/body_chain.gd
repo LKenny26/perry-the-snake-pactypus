@@ -71,8 +71,9 @@ func update_tail(delta: float):
 	
 	# if the first two points are very close, delete the first point. This happens
 	# when the moving tail rounds a corner.
-	if (abs(body_points[0].distance_to(body_points[1])) < 10 && !just_created):
+	if (abs(body_points[0].distance_to(body_points[1])) < 10): # && !just_created):
 		body_points.remove_at(0)
+		print('free')
 		first.queue_free()
 
 

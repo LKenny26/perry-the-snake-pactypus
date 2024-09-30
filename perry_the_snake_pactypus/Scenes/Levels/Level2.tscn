@@ -34,14 +34,16 @@ rotation = 1.5708
 [node name="WarpZonePair2" parent="." instance=ExtResource("3_0bwmj")]
 position = Vector2(500, 500)
 
-[node name="Doof" parent="." instance=ExtResource("3_3mxca")]
-position = Vector2(100, 101)
-
-[node name="Doof2" parent="." instance=ExtResource("3_3mxca")]
-position = Vector2(898, 898)
-
 [node name="SpawnPosition" type="Marker2D" parent="."]
 position = Vector2(500, 500)
 
-[editable path="Doof"]
-[editable path="Doof2"]
+[node name="Doofs" type="Node2D" parent="."]
+
+[node name="Doof" parent="Doofs" instance=ExtResource("3_3mxca")]
+position = Vector2(100, 101)
+
+[node name="Doof2" parent="Doofs" instance=ExtResource("3_3mxca")]
+position = Vector2(898, 898)
+
+[editable path="Doofs/Doof"]
+[editable path="Doofs/Doof2"]

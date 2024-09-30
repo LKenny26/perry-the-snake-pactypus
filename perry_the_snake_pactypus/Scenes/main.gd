@@ -5,7 +5,7 @@ extends Node2D
 var pellets = 0
 var lives = 14
 var cur_score = 0
-var current_level_number = 1
+var current_level_number = 2
 
 @onready var player: Node2D = $Player
 @onready var current_level: Level = get_child(0)
@@ -102,8 +102,10 @@ func on_player_death():
 		
 	if lives > 0:
 		await get_tree().create_timer(3.0).timeout
-		$Doof.player = get_tree().get_nodes_in_group("player_head")[0] # reassigns player to Doof
 		spawn_player(current_level.get_node("SpawnPosition").position)
+		for doof in current_level.get_node("Doofs").get_children():
+			doof.player = get_tree().get_nodes_in_group("player_head")[0] # reassigns player to Doof
+	
 	else: 
 		$GameOver.text = "Game Over"
 		
