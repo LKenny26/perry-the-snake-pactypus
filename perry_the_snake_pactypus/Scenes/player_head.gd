@@ -16,6 +16,8 @@ var shape_query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.n
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var direction_pointer: Sprite2D = $DirectionPointer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var turn_timer: Timer = $TurnTimer
+
 
 func _ready() -> void:
 	shape_query.shape = collision_shape_2d.shape
@@ -30,18 +32,21 @@ func _physics_process(delta: float) -> void:
 	
 	get_input()
 		
-	# only update movement_direction when there's a gap in the walls
-	if can_move_in_direction(next_movement_direction, delta) && movement_direction != next_movement_direction:
+	# only update movement_direction when:
+	if (can_move_in_direction(next_movement_direction, delta) && # there's a gap in the walls
+		movement_direction != next_movement_direction			&& # turning in a new direction
+		turn_timer.is_stopped()	# prevents bug where player can do a 180 immediately after turning
+	):
 		movement_direction = next_movement_direction
 		sprite.rotation = movement_direction.angle() #+ PI / 2 
 		
 		turning = true
 		
 	
-	velocity = movement_direction * speed
+	self.velocity = movement_direction * speed
 	
 	# captures collision
-	var collision = move_and_collide(velocity*delta)
+	var collision = move_and_collide(self.velocity*delta)
 	
 	# checks to see if collided with doof
 	if collision and collision.get_collider().is_in_group("doofs"):
@@ -49,9 +54,10 @@ func _physics_process(delta: float) -> void:
 	
 	# snaps the player to the grid so it's never off center. Also, create new point
 	if turning:
-		global_position.x = round((global_position.x - 20) / 40) * 40 + 20
-		global_position.y = round((global_position.y - 20) / 40) * 40 + 20
+		self.global_position.x = round((self.global_position.x - 20) / 40) * 40 + 20
+		self.global_position.y = round((self.global_position.y - 20) / 40) * 40 + 20
 		new_body_point.emit()
+		turn_timer.start()
 	
 	
 func get_input() -> void:
