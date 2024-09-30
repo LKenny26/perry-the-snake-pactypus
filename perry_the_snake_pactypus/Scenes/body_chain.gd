@@ -23,9 +23,10 @@ func create_new_body_segment():
 	var segment_collider = new_segment.get_node("CollisionShape2D")
 	
 	segment_collider.global_position = Vector2.ZERO
-	segment_collider.shape = SegmentShape2D.new()
-	segment_collider.shape.a = body_points[body_points.size() - 2]
-	segment_collider.shape.b = body_points[body_points.size() - 1]
+	segment_collider.shape = RectangleShape2D.new()
+	segment_collider.shape.size = Vector2(100,100)
+	#segment_collider.shape.a = body_points[body_points.size() - 2]
+	#segment_collider.shape.b = body_points[body_points.size() - 1]
 	
 	body_segment_list.add_child(new_segment)
 
@@ -54,7 +55,7 @@ func update_head():
 	
 	# update the first point in the list to the player's tail position
 	var last_collider = body_segment_list.get_child(body_segment_list.get_child_count() - 1).get_node("CollisionShape2D")
-	last_collider.shape.b = body_points[body_points.size() - 1]
+	#last_collider.shape.b = body_points[body_points.size() - 1]
 	
 	
 func update_tail(delta: float):
@@ -67,7 +68,7 @@ func update_tail(delta: float):
 	# update collider
 	var first = body_segment_list.get_child(0)
 	var first_collider = first.get_node("CollisionShape2D")
-	first_collider.shape.a = body_points[0]
+	#first_collider.shape.a = body_points[0]
 	
 	# if the first two points are very close, delete the first point. This happens
 	# when the moving tail rounds a corner.
