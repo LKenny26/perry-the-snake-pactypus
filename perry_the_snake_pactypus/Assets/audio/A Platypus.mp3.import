@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2j1eeoweguix"
+path="res://.godot/imported/A Platypus.mp3-d9c56e82a5380dea9abef0d7c6cba455.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/A Platypus.mp3"
+dest_files=["res://.godot/imported/A Platypus.mp3-d9c56e82a5380dea9abef0d7c6cba455.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -59,3 +59,9 @@ func on_player_death():
 		$Doof.player = get_tree().get_nodes_in_group("player_head")[0] # reassigns player to Doof
 	else: 
 		$GameOver.text = "Game Over"
+		
+func _on_audio_stream_player_2d_finished() -> void:
+	if randi_range(0, 9) == 0:
+		$SecretAudioLoop.playing = true
+	else:
+		$AudioLoop.playing = true

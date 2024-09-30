@@ -9,6 +9,7 @@ signal new_body_point
 var next_movement_direction: Vector2 = Vector2.ZERO
 var movement_direction: Vector2 = Vector2.ZERO
 var shape_query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
+var sound_played = false
 
 @export var speed: int = 150
 @export var alive: bool = true				# whether the player is still playing/moving or has died
@@ -50,6 +51,10 @@ func _physics_process(delta: float) -> void:
 	
 	# checks to see if collided with doof
 	if collision and collision.get_collider().is_in_group("doofs"):
+		if !sound_played:
+			sound_played = true
+			get_parent().get_parent().get_node("PerryAudio").playing = true
+			print("I PLAYED")
 		self.alive = false
 	
 	# snaps the player to the grid so it's never off center. Also, create new point
