@@ -7,6 +7,7 @@ var cur_score = 0
 var current_level_number = 1
 
 @onready var player: Node2D = $Player
+@onready var player_head: PlayerHead = $Player/PlayerHead
 @onready var current_level: Level = get_child(0)
 
 @onready var life_icons: Node2D = $LifeIcons
@@ -37,15 +38,19 @@ func load_level(number: int):
 	move_child(current_level, 0)
 	call_deferred("set_up_pellets", current_level)
 
+func toggle_nux():
+	lives = 14
 
 func set_up_pellets(level: Level):
 	var pellet_layer: TileMapLayer = level.get_node("NavigationRegion2D/PelletLayer")
 	
-	for pellet in pellet_layer.get_children():
-		pellet.pellet_eaten.connect(on_pellet_eaten)
-		
-func toggle_nux():
-	lives = 14
+	for item in pellet_layer.get_children():
+		if item is Pellet:
+			item.pellet_eaten.connect(on_pellet_eaten)
+		if item is Big_Pellet:
+			print(item)
+			item.fedora_eaten.connect(on_fedora_eaten)
+
 
 func _ready():
 	load_level(current_level_number)
@@ -75,7 +80,7 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 	
 	var pellet_layer = current_level.get_node("NavigationRegion2D/PelletLayer")
 	
-	if (pellet_layer.get_child_count() <= 1):
+	if (pellet_layer.get_child_count() <= 1 || (current_level_number == 1 && pellets == 5)):
 		level_clear_text.visible = true
 		await get_tree().create_timer(2.0).timeout
 		level_clear_text.visible = false
@@ -87,12 +92,20 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 		load_level(current_level_number)
 		spawn_player(current_level.get_node("SpawnPosition").position)
 		
+#When you eat a fedora it should...
+func on_fedora_eaten(should_allow_eating_ghosts: bool):
+	player_head.can_eat_doofs = true
+	player_head.fedora_sprite.visible = true
+	await get_tree().create_timer(10.0).timeout
+	player_head.can_eat_doofs = false
+	player_head.fedora_sprite.visible = false
 	
 func spawn_player(spawn_position: Vector2):
 	if player != null:
 		player.queue_free()
 		 
 	player = player_scene.instantiate()
+	player_head = player.get_node("PlayerHead")
 	player.dead.connect(on_player_death)
 	player.position = spawn_position
 	add_child(player)

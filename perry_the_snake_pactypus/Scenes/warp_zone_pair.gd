@@ -23,17 +23,23 @@ func _ready():
 	print(zone_1_enter_direction, zone_2_enter_direction)
 
 func _on_zone_1_body_entered(body):
-	
-	if (body.movement_direction != zone_1_enter_direction):
-		return
-	
-	body.global_position = zone_2.global_position + zone_1_enter_direction * 40
-	body.get_parent().create_new_chain()
+	# checks for perry
+	if (body.is_in_group("player_head")):
+		if (body.movement_direction != zone_1_enter_direction):
+			return
+		body.global_position = zone_2.global_position + 40 * zone_1_enter_direction
+		body.get_parent().create_new_chain()
+	# doofs
+	else:
+		body.global_position = zone_2.global_position + 40 * zone_1_enter_direction
 
 func _on_zone_2_body_entered(body):
-	
-	if (body.movement_direction != zone_2_enter_direction):
-		return
-	
-	body.global_position = zone_1.global_position + zone_2_enter_direction * 40
-	body.get_parent().create_new_chain()
+	# checks for perry
+	if (body.is_in_group("player_head")):
+		if (body.movement_direction != zone_2_enter_direction):
+			return
+		body.global_position = zone_1.global_position + 40 * zone_2_enter_direction
+		body.get_parent().create_new_chain()
+	# doofs
+	else:
+		body.global_position = zone_1.global_position + 40 * zone_2_enter_direction
