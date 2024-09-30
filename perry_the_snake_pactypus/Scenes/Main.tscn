@@ -1,50 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://djclr0vkb0pct"]
+[gd_scene load_steps=6 format=3 uid="uid://djclr0vkb0pct"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="PackedScene" uid="uid://wdnaj5k15k1m" path="res://Scenes/Levels/Level1.tscn" id="2_52nt7"]
 [ext_resource type="FontFile" uid="uid://1mepshwxkhfg" path="res://animations/CorelDraw.ttf" id="5_y543j"]
 [ext_resource type="Texture2D" uid="uid://bgkou0ne8is1v" path="res://animations/doof_tower.jpg" id="6_bytvm"]
-[ext_resource type="Texture2D" uid="uid://botv8a0l1lyua" path="res://animations/platy-short/image0.png" id="7_i0wr8"]
-[ext_resource type="Texture2D" uid="uid://dcjypr2iibboe" path="res://animations/platy-short/image1.png" id="8_efg1m"]
-[ext_resource type="Texture2D" uid="uid://bx87okyxp2lt" path="res://animations/platy-short/image2.png" id="9_yspsn"]
-[ext_resource type="Texture2D" uid="uid://dyprk6a5wpoxp" path="res://animations/platy-short/image3.png" id="10_7nvsb"]
-[ext_resource type="Texture2D" uid="uid://epj0cyharcwv" path="res://animations/platy-short/image4.png" id="11_u64lt"]
-[ext_resource type="Texture2D" uid="uid://cspaoclhje22t" path="res://animations/platy-short/image5.png" id="12_2x5ud"]
-[ext_resource type="Texture2D" uid="uid://dqbbeqts6psqm" path="res://animations/platy-short/image6.png" id="13_ubvk7"]
-[ext_resource type="Texture2D" uid="uid://bog4qb7pgkkvk" path="res://animations/platy-short/image7.png" id="14_hhedw"]
 [ext_resource type="PackedScene" uid="uid://bh6qgdb4804jt" path="res://Scenes/Player/Player.tscn" id="15_ibjey"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5e548"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_i0wr8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_efg1m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_yspsn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_7nvsb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_u64lt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_2x5ud")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_ubvk7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_hhedw")
-}],
-"loop": true,
-"name": &"perry",
-"speed": 5.0
-}]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8bcg8")
@@ -72,7 +32,6 @@ theme_override_fonts/font = ExtResource("5_y543j")
 theme_override_font_sizes/font_size = 35
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 modulate = Color(0.488054, 0.488054, 0.488054, 1)
 z_index = -3
 offset_left = -736.0
@@ -83,35 +42,13 @@ texture = ExtResource("6_bytvm")
 
 [node name="Lives" type="Label" parent="."]
 offset_left = 25.0
-offset_top = 960.0
+offset_top = 953.0
 offset_right = 231.0
-offset_bottom = 1006.0
+offset_bottom = 999.0
 theme_override_fonts/font = ExtResource("5_y543j")
 theme_override_font_sizes/font_size = 35
-
-[node name="Life1" type="AnimatedSprite2D" parent="."]
-position = Vector2(175, 979)
-scale = Vector2(0.07, 0.07)
-sprite_frames = SubResource("SpriteFrames_5e548")
-animation = &"perry"
-autoplay = "perry"
-frame_progress = 0.102887
-
-[node name="Life2" type="AnimatedSprite2D" parent="."]
-position = Vector2(234, 978)
-scale = Vector2(0.07, 0.07)
-sprite_frames = SubResource("SpriteFrames_5e548")
-animation = &"perry"
-autoplay = "perry"
-frame_progress = 0.318508
-
-[node name="Life3" type="AnimatedSprite2D" parent="."]
-position = Vector2(288, 978)
-scale = Vector2(0.07, 0.07)
-sprite_frames = SubResource("SpriteFrames_5e548")
-animation = &"perry"
-autoplay = "perry"
-frame_progress = 0.136403
+text = "Lives:
+"
 
 [node name="Player" parent="." instance=ExtResource("15_ibjey")]
 position = Vector2(500, 580)
@@ -125,3 +62,5 @@ theme_override_colors/font_color = Color(0.631373, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_y543j")
 theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
+
+[node name="LifeIcons" type="Node2D" parent="."]
