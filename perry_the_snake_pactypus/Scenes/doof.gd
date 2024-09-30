@@ -59,10 +59,15 @@ func _on_navigation_agent_2d_navigation_finished() -> void:
 
 # doof hits perry's body
 func body_collision() -> void:
+	print("hadlks")
 	var pos
 	$CollisionTimer.start() # looks for a random position for 5 seconds
 	$Timer.set_paused(true) # pauses timer that looks for player
-	pos = Vector2(randi_range(0, 1000), randi_range(0,1000))
+	match randi_range(0, 3):
+		0: pos = Vector2(0,0)
+		1: pos = Vector2(0, 1000)
+		2: pos = Vector2(1000, 0)
+		3: pos = Vector2(1000, 1000)
 	$NavigationAgent2D.target_position = pos
 	
 # after doof hits body and can chase player
