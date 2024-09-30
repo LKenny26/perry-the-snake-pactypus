@@ -2,7 +2,7 @@ extends Node2D
 
 class_name BodyChain
 
-var body_segment_scene: PackedScene = load("res://Scenes/BodySegment.tscn")
+var body_segment_scene: PackedScene = load("res://Scenes/Player/BodySegment.tscn")
 
 @onready var body_line: Line2D = $BodyLine					# visual only - the colored line
 @onready var body_line_border: Line2D = $BodyLineBorder		# visual only - the black border
@@ -43,7 +43,7 @@ func _ready():
 	body_line_border.global_position = Vector2.ZERO
 	body_segment_list.global_position = Vector2.ZERO
 	
-	body_points.append(player_head.global_position + Vector2.LEFT)
+	body_points.append(player_head.global_position + Vector2(0.01, 0))
 	body_points.append(player_head.global_position)
 	create_new_body_segment()
 	

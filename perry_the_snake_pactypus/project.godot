@@ -25,6 +25,7 @@ window/stretch/mode="viewport"
 
 doofs=""
 player_head=""
+player_body=""
 
 [input]
 
