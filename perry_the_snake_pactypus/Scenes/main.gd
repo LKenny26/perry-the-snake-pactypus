@@ -49,6 +49,7 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 func on_fedora_eaten(should_allow_eating_ghosts: bool):
 	if head:
 		head.can_eat_doofs = true
+		
 		await get_tree().create_timer(10.0).timeout
 		head.can_eat_doofs = false
 	

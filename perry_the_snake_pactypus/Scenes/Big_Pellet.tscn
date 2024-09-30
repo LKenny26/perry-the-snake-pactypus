@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bci1wdk1qpw0w"]
+[gd_scene load_steps=5 format=3 uid="uid://bci1wdk1qpw0w"]
 
 [ext_resource type="Script" path="res://Scenes/Big_Pellet.gd" id="1_0haap"]
 [ext_resource type="Texture2D" uid="uid://55wesos0d7mj" path="res://Assets/pellets/fedora.PNG" id="2_dulhi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ek3s"]
 size = Vector2(6.8, 3.4)
+
+[sub_resource type="Environment" id="Environment_8oj7g"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
 
 [node name="Big Pellet" type="Area2D"]
 collision_layer = 8
@@ -20,5 +25,8 @@ texture = ExtResource("2_dulhi")
 position = Vector2(0, -2.5)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_2ek3s")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8oj7g")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
