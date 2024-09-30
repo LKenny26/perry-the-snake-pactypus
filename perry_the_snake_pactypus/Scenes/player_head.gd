@@ -10,12 +10,16 @@ var next_movement_direction: Vector2 = Vector2.ZERO
 var movement_direction: Vector2 = Vector2.ZERO
 var shape_query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
 
+var can_eat_doofs = false
+
 @export var speed: int = 150
 @export var alive: bool = true				# whether the player is still playing/moving or has died
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var direction_pointer: Sprite2D = $DirectionPointer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
+@onready var fedora: Node = $Big_Pellets
 
 func _ready() -> void:
 	shape_query.shape = collision_shape_2d.shape
@@ -45,7 +49,13 @@ func _physics_process(delta: float) -> void:
 	
 	# checks to see if collided with doof
 	if collision and collision.get_collider().is_in_group("doofs"):
-		self.alive = false
+		var doof = collision.get_collider()
+		if can_eat_doofs:
+			doof.queue_free()
+			self.alive = true
+		else:
+			self.alive = false
+
 	
 	# snaps the player to the grid so it's never off center. Also, create new point
 	if turning:

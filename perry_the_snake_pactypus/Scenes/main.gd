@@ -45,10 +45,12 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 
 #When you eat a fedora it should...
 func on_fedora_eaten(should_allow_eating_ghosts: bool):
-	pass # Replace with function body.
+	var player_head = player as PlayerHead
+	if player_head:
+		player_head.can_eat_doofs = should_allow_eating_ghosts
 	
 func spawn_player():
-	player = player_scene.instantiate()
+	player = player_scene.instantiate() as PlayerHead
 	player.dead.connect(on_player_death)
 	add_child(player)
 
