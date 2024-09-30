@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://djclr0vkb0pct"]
+[gd_scene load_steps=15 format=3 uid="uid://djclr0vkb0pct"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="PackedScene" uid="uid://wdnaj5k15k1m" path="res://Scenes/Levels/Level1.tscn" id="2_52nt7"]
-[ext_resource type="PackedScene" uid="uid://cof2bwjlpd6ea" path="res://Scenes/doof.tscn" id="4_e251c"]
 [ext_resource type="FontFile" uid="uid://1mepshwxkhfg" path="res://animations/CorelDraw.ttf" id="5_y543j"]
 [ext_resource type="Texture2D" uid="uid://bgkou0ne8is1v" path="res://animations/doof_tower.jpg" id="6_bytvm"]
 [ext_resource type="Texture2D" uid="uid://botv8a0l1lyua" path="res://animations/platy-short/image0.png" id="7_i0wr8"]
@@ -51,10 +50,6 @@ animations = [{
 script = ExtResource("1_8bcg8")
 
 [node name="Level" parent="." instance=ExtResource("2_52nt7")]
-
-[node name="Doof" parent="." instance=ExtResource("4_e251c")]
-position = Vector2(101, 102)
-scale = Vector2(0.3, 0.3)
 
 [node name="Length" type="Label" parent="."]
 offset_left = 401.0

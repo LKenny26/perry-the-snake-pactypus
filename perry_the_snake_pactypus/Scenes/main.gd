@@ -38,7 +38,7 @@ func set_up_pellets(level: Level):
 
 
 func _ready():
-	load_level(1)
+	load_level(2)
 	
 	start.x = 500
 	start.y = 580

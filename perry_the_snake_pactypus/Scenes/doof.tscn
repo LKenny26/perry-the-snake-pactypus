@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28b3l"]
-radius = 62.0
+radius = 18.0
 
 [node name="Doof" type="CharacterBody2D" groups=["doofs"]]
 collision_layer = 16
@@ -25,8 +25,7 @@ floor_max_angle = 1.91986
 script = ExtResource("1_c3kkk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-6.5, 2.00001)
-scale = Vector2(0.239815, 0.222222)
+scale = Vector2(0.07, 0.064)
 sprite_frames = SubResource("SpriteFrames_al1dl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

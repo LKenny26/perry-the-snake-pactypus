@@ -43,7 +43,7 @@ func _ready():
 	body_line_border.global_position = Vector2.ZERO
 	body_segment_list.global_position = Vector2.ZERO
 	
-	body_points.append(player_head.global_position + Vector2.LEFT)
+	body_points.append(player_head.global_position + Vector2(0.01, 0))
 	body_points.append(player_head.global_position)
 	create_new_body_segment()
 	
