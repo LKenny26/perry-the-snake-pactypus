@@ -18,6 +18,7 @@ animations = [{
 radius = 18.0
 
 [node name="Doof" type="CharacterBody2D" groups=["doofs"]]
+z_index = 10
 collision_layer = 16
 collision_mask = 7
 floor_stop_on_slope = false

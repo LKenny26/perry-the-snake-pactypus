@@ -12,7 +12,7 @@ var body_chain_scene: PackedScene = load("res://Scenes/Player/BodyChain.tscn")
 signal dead
 	
 func death():
-	emit_signal("dead")
+	emit_signal("dead", max_body_length)
 	queue_free()
 	
 	
