@@ -99,6 +99,7 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 func on_fedora_eaten(should_allow_eating_ghosts: bool):
 	player_head.can_eat_doofs = true
 	player_head.fedora_sprite.visible = true
+	$PerryAudio.play()
 	await get_tree().create_timer(10.0).timeout
 	player_head.can_eat_doofs = false
 	player_head.fedora_sprite.visible = false

@@ -53,16 +53,19 @@ func _physics_process(delta: float) -> void:
 	
 	# checks to see if collided with doof
 	if collision and collision.get_collider().is_in_group("doofs"):
-		if !sound_played:
-			sound_played = true
-			get_parent().get_parent().get_node("APlatypus").playing = true
-			print("I PLAYED")
-			
 		var doof = collision.get_collider()
 			
 		if self.can_eat_doofs:
+			if !sound_played:
+				sound_played = true
+				get_parent().get_parent().get_node("PerryAudio").playing = true
+				print("I PLAYED")
 			doof.queue_free()
 		else:
+			if !sound_played:
+				sound_played = true
+				get_parent().get_parent().get_node("APlatypus").playing = true
+				print("I PLAYED")
 			self.alive = false
 	
 	# snaps the player to the grid so it's never off center. Also, create new point
