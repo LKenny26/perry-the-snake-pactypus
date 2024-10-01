@@ -4,7 +4,7 @@ extends Node2D
 var pellets = 0
 var lives = 3
 var cur_score = 0
-var current_level_number = 3
+var current_level_number = 1
 
 signal endGame
 
