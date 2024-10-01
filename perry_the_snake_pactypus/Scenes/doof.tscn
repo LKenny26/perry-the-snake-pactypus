@@ -36,7 +36,6 @@ navigation_layers = 2
 avoidance_enabled = true
 radius = 100.0
 avoidance_mask = 3
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

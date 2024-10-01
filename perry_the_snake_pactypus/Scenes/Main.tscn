@@ -117,6 +117,6 @@ vertical_alignment = 1
 
 [node name="Wakawaka" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_dgx7n")
-volume_db = -23.0
+volume_db = -15.0
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

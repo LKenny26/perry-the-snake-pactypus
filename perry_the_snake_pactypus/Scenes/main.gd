@@ -4,7 +4,7 @@ extends Node2D
 var pellets = 0
 var lives = 3
 var cur_score = 0
-var current_level_number = 1
+var current_level_number = 3
 
 signal endGame
 
@@ -85,7 +85,9 @@ func on_pellet_eaten(should_allow_eating_ghosts: bool):
 	
 	if (pellet_layer.get_child_count() <= 1):
 		level_clear_text.visible = true
+		get_tree().paused = true
 		await get_tree().create_timer(2.0).timeout
+		get_tree().paused = false
 		level_clear_text.visible = false
 		current_level_number += 1
 		
