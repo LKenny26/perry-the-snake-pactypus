@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Scenes/Player/body_segment.gd" id="1_cm180"]
 
-
 [node name="BodySegment" type="Area2D"]
 collision_layer = 4
 collision_mask = 17

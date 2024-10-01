@@ -12,6 +12,8 @@ var movement_direction: Vector2 = Vector2.ZERO
 var shape_query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
 var sound_played = false
 
+var can_move = false
+
 @export var speed: int = 150
 @export var alive: bool = true				# whether the player is still playing/moving or has died
 
@@ -25,6 +27,8 @@ var sound_played = false
 func _ready() -> void:
 	shape_query.shape = collision_shape_2d.shape
 	shape_query.collision_mask = 2
+	await get_tree().create_timer(0.5).timeout
+	can_move = true
 
 
 func _physics_process(delta: float) -> void:
@@ -77,6 +81,9 @@ func _physics_process(delta: float) -> void:
 	
 	
 func get_input() -> void:
+	if !can_move:
+		return
+	
 	var input_direction: Vector2
 	
 	if Input.is_action_pressed("left"):

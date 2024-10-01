@@ -114,10 +114,6 @@ func spawn_player(spawn_position: Vector2, new_level: bool):
 	player.dead.connect(on_player_death)
 	player.position = spawn_position
 	
-	# keep length on respawn from death
-	if (!new_level):
-		player.max_body_length = previous_length
-	
 	add_child(player)
 
 func on_player_death(body_length: int):
