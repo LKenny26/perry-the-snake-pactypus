@@ -73,6 +73,7 @@ func _ready():
 
 
 func on_pellet_eaten(should_allow_eating_ghosts: bool):
+	$Wakawaka.play()
 	player.max_body_length += 20
 	pellets = pellets + 1
 	cur_score = cur_score + 100 + player.max_body_length / 2

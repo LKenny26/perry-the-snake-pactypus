@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://djclr0vkb0pct"]
+[gd_scene load_steps=14 format=3 uid="uid://djclr0vkb0pct"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_8bcg8"]
 [ext_resource type="PackedScene" uid="uid://wdnaj5k15k1m" path="res://Scenes/Levels/Level1.tscn" id="2_52nt7"]
 [ext_resource type="FontFile" uid="uid://1mepshwxkhfg" path="res://animations/CorelDraw.ttf" id="5_y543j"]
 [ext_resource type="Texture2D" uid="uid://bgkou0ne8is1v" path="res://animations/doof_tower.jpg" id="6_bytvm"]
+[ext_resource type="AudioStream" uid="uid://4mitits4vwvf" path="res://Assets/audio/Wakawaka.mp3" id="12_dgx7n"]
 [ext_resource type="PackedScene" uid="uid://bh6qgdb4804jt" path="res://Scenes/Player/Player.tscn" id="15_ibjey"]
 [ext_resource type="PackedScene" uid="uid://cy7qxgknrqfff" path="res://Scenes/WarpZonePair.tscn" id="16_58y7h"]
 [ext_resource type="AudioStream" uid="uid://cag8r0lkk1373" path="res://Assets/audio/Doofenshmirtz Evil Incorporated (HD).mp3" id="18_pk741"]
@@ -112,5 +113,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_r65r6")
 text = "Level Clear!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Wakawaka" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_dgx7n")
+volume_db = -10.0
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
