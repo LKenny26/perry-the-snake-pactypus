@@ -101,8 +101,9 @@ func on_fedora_eaten(should_allow_eating_ghosts: bool):
 	player_head.fedora_sprite.visible = true
 	$PerryAudio.play()
 	await get_tree().create_timer(10.0).timeout
-	player_head.can_eat_doofs = false
-	player_head.fedora_sprite.visible = false
+	if is_instance_valid(player_head): # checks if player head exists
+		player_head.can_eat_doofs = false
+		player_head.fedora_sprite.visible = false
 	
 func spawn_player(spawn_position: Vector2, new_level: bool):
 	if player != null:
