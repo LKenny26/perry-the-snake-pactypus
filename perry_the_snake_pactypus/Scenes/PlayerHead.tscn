@@ -1,0 +1,121 @@
+[gd_scene load_steps=23 format=3 uid="uid://bydthja8j7s4h"]
+
+[ext_resource type="Script" path="res://Scenes/player_head.gd" id="1_a01rl"]
+[ext_resource type="Texture2D" uid="uid://b3qgujrrphwy0" path="res://animations/candace_finger.png" id="2_4yk61"]
+[ext_resource type="Texture2D" uid="uid://bvtb7aapt1tme" path="res://animations/no-background-platy/image0.png" id="3_bjl7v"]
+[ext_resource type="Texture2D" uid="uid://botv8a0l1lyua" path="res://animations/platy-short/image0.png" id="3_tcmlu"]
+[ext_resource type="Texture2D" uid="uid://dcjypr2iibboe" path="res://animations/platy-short/image1.png" id="4_2xu8w"]
+[ext_resource type="Texture2D" uid="uid://b3s1bfadurtqx" path="res://animations/no-background-platy/image1.png" id="4_6htk3"]
+[ext_resource type="Texture2D" uid="uid://bx87okyxp2lt" path="res://animations/platy-short/image2.png" id="5_ewgea"]
+[ext_resource type="Texture2D" uid="uid://dyprk6a5wpoxp" path="res://animations/platy-short/image3.png" id="6_8lq7p"]
+[ext_resource type="Texture2D" uid="uid://epj0cyharcwv" path="res://animations/platy-short/image4.png" id="7_qv6sy"]
+[ext_resource type="Texture2D" uid="uid://cspaoclhje22t" path="res://animations/platy-short/image5.png" id="8_0lr0k"]
+[ext_resource type="Texture2D" uid="uid://dqbbeqts6psqm" path="res://animations/platy-short/image6.png" id="9_uvq2b"]
+[ext_resource type="Texture2D" uid="uid://bog4qb7pgkkvk" path="res://animations/platy-short/image7.png" id="10_63hpt"]
+[ext_resource type="Texture2D" uid="uid://ddxgxs650fgp" path="res://animations/platy-head/image0.png" id="11_kap8f"]
+[ext_resource type="Texture2D" uid="uid://llv3cnnqwnvb" path="res://animations/platy-head/image1.png" id="12_ejai5"]
+[ext_resource type="Texture2D" uid="uid://bqtgnf3a8rrsi" path="res://animations/platy-head/image2.png" id="13_vvx1n"]
+[ext_resource type="Texture2D" uid="uid://olva6w6pfxmk" path="res://animations/platy-head/image3.png" id="14_qo2mp"]
+[ext_resource type="Texture2D" uid="uid://td4v7j43yv21" path="res://animations/platy-head/IMG_9042.PNG" id="15_tjujk"]
+[ext_resource type="Texture2D" uid="uid://c03m7bdh7qo7c" path="res://animations/platy-head/image4.png" id="16_s61su"]
+[ext_resource type="Texture2D" uid="uid://bcqd7yp5eakny" path="res://animations/platy-head/image5.png" id="17_h8dsr"]
+[ext_resource type="Texture2D" uid="uid://r4xjab5oqvs6" path="res://animations/platy-head/image6.png" id="18_ltksd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eg4g"]
+size = Vector2(37, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_leb4b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bjl7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6htk3")
+}],
+"loop": true,
+"name": &"no-background",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tcmlu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2xu8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ewgea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8lq7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qv6sy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0lr0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uvq2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_63hpt")
+}],
+"loop": true,
+"name": &"platy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_kap8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ejai5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vvx1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qo2mp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_tjujk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_s61su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_h8dsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ltksd")
+}],
+"loop": true,
+"name": &"platy-head",
+"speed": 5.0
+}]
+
+[node name="PlayerHead" type="CharacterBody2D" groups=["player_head"]]
+collision_mask = 30
+script = ExtResource("1_a01rl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2eg4g")
+
+[node name="DirectionPointer" type="Sprite2D" parent="."]
+position = Vector2(43, 0)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_4yk61")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, 5.96046e-08)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_leb4b")
+animation = &"no-background"
+autoplay = "no-background"
+frame_progress = 0.69755
+
+[node name="TurnTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true

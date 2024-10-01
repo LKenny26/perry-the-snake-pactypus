@@ -103,3 +103,10 @@ func can_move_in_direction(dir: Vector2, delta: float) -> bool:
 	shape_query.transform = global_transform.translated(dir * speed * delta * 2)
 	var result = get_world_2d().direct_space_state.intersect_shape(shape_query)
 	return result.size() == 0
+
+func start_glow():
+	var new_intensity = 0.5 + 0.5 * sin(Time.get_ticks_msec() / 200.0)
+	sprite.set_modulate(Color(1, 1, new_intensity, 1))
+
+func stop_glow():
+	sprite.set_modulate(Color(1, 1, 1, 1))
