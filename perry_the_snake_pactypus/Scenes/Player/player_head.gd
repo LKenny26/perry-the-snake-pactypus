@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 				sound_played = true
 				get_parent().get_parent().get_node("PerryAudio").playing = true
 				print("I PLAYED")
-			doof.queue_free()
+			doof.die()
 		else:
 			if !sound_played:
 				sound_played = true

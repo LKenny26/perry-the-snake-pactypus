@@ -69,3 +69,11 @@ func body_collision() -> void:
 # after doof hits body and can chase player
 func _on_collision_timer_timeout() -> void:
 	$Timer.set_paused(false) # unpauses main timer
+	
+func die():
+	visible = false
+	$CollisionShape2D.disabled = true
+	await get_tree().create_timer(20.0).timeout
+	global_position = Vector2(80, 80)
+	visible = true
+	$CollisionShape2D.disabled = false
